@@ -1,0 +1,265 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+
+    .NavBarContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
+        min-height: 200px; //simillaire a la version mobile
+
+
+        @include z-index($z_index: 5);
+
+        .container_reservation {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+
+            .reservation {
+                @include desktop_reservation();
+                @include bg_4;
+                @include text_italic($font-weight: 300);
+                @include text_style_center;
+                @include c_white;
+                @include z-index($z_index: 6);
+
+                &:hover {
+                    @include bg_5;
+                    @include c_black;
+                }
+            }
+
+
+        }
+
+
+    }
+
+    .container_top {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+        width: 100%;
+        height: 120px;
+        overflow: hidden;
+        @include z_index();
+
+        .container_identification {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            min-width: 150px;
+            width: fit-content;
+            height: 80px;
+            @include z_index();
+
+            .btn_link {
+
+                @include btn_style($line-height: 30px);
+                @include btn_border();
+                @include btn_desktop();
+                @include text_italic;
+                @include c_black;
+                @include bg_gold();
+                @include z_index();
+                border-radius: 0 8px 0 8px;
+
+                &:hover {
+                    @include text_italic($font-weight: 400);
+                    @include c_black;
+                    @include z_index();
+                    @include bg_goldenrod();
+                }
+            }
+        }
+
+
+
+        .container_left {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 45%;
+            max-width: 60%;
+            @include z_index();
+
+
+            .container-img {
+                width: 120px;
+                height: 120px;
+                @include z_index();
+
+                .navbar-brand {
+                    width: 100%;
+                    height: 100%;
+                    @include z_index();
+
+                    &:focus {
+                        border: none !important;
+                        box-shadow: none !important;
+                        outline: none !important;
+                    }
+
+                    .ImgNavBar {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        @include z_index();
+
+
+                        &:hover {
+                            filter: invert(0.2);
+                        }
+
+                    }
+                }
+
+
+            }
+
+            .container_title {
+                display: flex;
+                flex-direction: column;
+                min-width: 60%;
+                max-width: 70%;
+                max-height: 90px;
+                @include z_index();
+
+
+
+                h1 {
+                    display: inline-block;
+                    width: fit-content;
+                    align-self: flex-start;
+                    text-align: left;
+                    @include c_white;
+                    @include text_italic($font-weight: 500, $font-size: 2rem);
+                    @include title_margin;
+                    @include z_index();
+
+
+                }
+
+                h2 {
+                    display: inline-block;
+                    width: fit-content;
+                    align-self: flex-end;
+                    text-align: right;
+                    @include c_white;
+                    @include text_italic($font-weight: 300, $font-size: 1.6rem);
+                    @include title_margin;
+                    @include z_index();
+
+                }
+            }
+        }
+    }
+
+
+    .navbar {
+        @include reset();
+        @include z_index();
+
+        .container-navbar {
+            display: flex;
+            justify-content: center;
+            height: fit-content;
+            width: 100%;
+            @include z_index();
+
+            .onglet-container {
+
+                display: flex;
+                justify-content: end !important;
+                min-height: 50px;
+                height: fit-content;
+                width: 100%;
+                @include z_index();
+
+                .onglet-list {
+                    display: flex;
+                    justify-content: space-around !important;
+                    height: fit-content;
+                    min-height: fit-content;
+                    min-width: 65%;
+                    max-width: 100%;
+                    padding-right: 3%;
+                    margin: 0 !important;
+                    list-style: none;
+                    @include z_index();
+
+                    .nav-item {
+                        @include onglet_barnav();
+                        @include z_index();
+
+                        .nav-link {
+                            @include text_italic;
+                            @include text_style_center;
+                            @include c_white;
+
+
+
+                            @include nav_link();
+                            @include z_index();
+
+
+                        }
+
+                        .hover_nav {
+                            @include hover_onglet_barnav($width: 0);
+                            @include z_index();
+                        }
+
+                        .nav-link:hover+.hover_nav {
+                            @include hover_onglet_barnav();
+                            @include bg_white;
+                        }
+
+
+                    }
+                }
+            }
+        }
+    }
+
+
+    /* decoration */
+
+    .vector1 {
+        width: 50%;
+        position: absolute;
+        z-index: 1;
+        right: -5%;
+        top: -20px;
+        transform: rotateY(180deg) rotate(10deg)
+    }
+
+    .vector2 {
+        width: 50%;
+        position: absolute;
+        z-index: 1;
+        transform: rotateY(180deg) rotate(180deg);
+        top: 120px;
+        left: -300px;
+
+    }
+
+    .vector3 {
+        width: 40%;
+        position: absolute;
+        z-index: 11;
+        left: 15%;
+        transform: rotateY(180deg) rotate(-25deg);
+        top: -70px;
+    }
+
+    .vector4 {
+        display: none;
+    }
+}

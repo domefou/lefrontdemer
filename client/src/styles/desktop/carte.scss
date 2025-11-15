@@ -1,0 +1,535 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+
+
+    .container_gen {
+        position: relative;
+        display: flex;
+        width: 100%;
+
+        .navButton {
+
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            position: sticky;
+            top: 10px;
+            @include z-index($z_index: 15);
+            height: 50px;
+
+            .ancre {
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 60%;
+                min-width: 601px;
+
+
+
+            }
+
+
+            a {
+
+                display: block;
+                flex-direction: row;
+                text-decoration: none;
+                @include c_black();
+                @include text_italic($font-size: 1.2rem, $font-weight: 500);
+                @include text_style_center();
+                @include bg_goldenrod();
+
+                &:hover {
+                    @include bg_gold();
+                }
+            }
+
+            .link_entree {
+                width: 30%;
+                height: fit-content;
+                @include border_dark_grey($radius: 0 0 0 35px);
+
+            }
+
+            .link_plat {
+                width: 30%;
+                height: fit-content;
+                @include border_dark_grey($radius: 0);
+            }
+
+            .link_dessert {
+                width: 30%;
+                height: fit-content;
+                @include border_dark_grey($radius: 0 0 35px 0);
+            }
+
+            .reset_scroll {
+                position: absolute;
+                right: 0;
+                width: 50px;
+                background-color: transparent;
+                border: none;
+
+                img {
+                    width: 100%;
+                    transform: rotate(270deg);
+
+
+                    &:hover {
+                        transition: opacity 0.2s ease-in;
+                        filter: brightness(80%)
+                    }
+                }
+            }
+        }
+
+        .banner_carte {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            width: 100%;
+            height: 250px;
+            @include bg_black();
+
+
+            .banner_title {
+                position: absolute;
+                width: 50%;
+                display: block;
+                justify-self: center;
+                width: fit-content;
+                min-width: 200px;
+                margin-top: 70px;
+                padding: 40px 0;
+                @include z-index();
+                @include text_italic($font-weight: 700, $font-size: 3rem);
+                @include text_style_center();
+                @include c_white();
+
+
+            }
+
+
+            img {
+                display: block;
+                object-fit: cover;
+                max-width: 100%;
+                max-height: 100%;
+                width: 100%;
+
+
+            }
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+    /**********************************************************************************************/
+
+
+    //bouton ajout plat ou dessert (admin)
+
+    .admin-modification {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-self: center;
+        width: 70%;
+        min-width: 640px;
+        margin-bottom: 50px;
+        @include bg_none();
+
+
+
+        h3 {
+            display: block;
+            justify-self: center;
+            width: 60%;
+            margin-top: 70px;
+            padding: 40px 0;
+            @include z-index();
+            @include text_italic($font-weight: 500, $font-size: 2rem);
+            @include text_style_center();
+            @include c_white();
+        }
+
+
+        .btn_add {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            overflow: hidden;
+            width: 100%;
+            height: 130px;
+            padding: 10px;
+            border: 1px solid goldenrod;
+            cursor: pointer;
+            @include bg_none();
+
+            &:hover {
+                background-color: rgb(40, 40, 40);
+                transition: background-color 0.3s ease;
+                @include border_light_grey();
+                @include bg_dark_grey();
+
+                img {
+                    transform: rotate(90deg);
+                    transition: transform 0.3s ease;
+                }
+            }
+
+
+
+            img {
+                display: block;
+                justify-self: center;
+                align-self: center;
+                object-fit: cover;
+                width: 80px;
+                height: 80px;
+                transform: rotate(45deg);
+
+
+
+
+            }
+
+        }
+    }
+
+
+    // formulaire ajout de nouveau plat (administrateur)
+    .container_form_add {
+
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+
+        .form_add {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 70%;
+            min-width: 640px;
+            margin-top: 5px;
+            padding: 5px;
+            height: fit-content;
+            //@include bg_dark_grey();
+            @include border_light_grey();
+
+
+
+            .btn_close {
+                position: absolute;
+                right: 15px;
+                top: 15px;
+                justify-items: flex-end;
+                width: fit-content;
+                background-color: transparent;
+                padding: 0;
+                border: none;
+
+                img {
+                    display: block;
+                    width: 30px;
+                }
+
+                &:hover {
+                    img {
+                        transform: rotate(10deg);
+                        transition: transform 0.2s ease;
+                    }
+                }
+            }
+
+            .titre,
+            .detail,
+            .photo,
+            .prix {
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                box-sizing: border-box;
+                width: 100%;
+                padding: 5px;
+                @include c_goldenrod();
+                @include text_style_center();
+                @include text_normal();
+
+                input,
+                textarea {
+                    display: block;
+                    box-sizing: border-box;
+                    width: 80%;
+                    height: fit-content;
+                    margin-top: 5px;
+                    @include text_style_left();
+                    @include text_normal($font-weight: 400);
+                    border: 2px solid black;
+                }
+            }
+
+            .btn_send {
+                width: 30%;
+                margin: 25px 0;
+                @include btn_gold($border: 1px solid #FFFFFF);
+                @include text_italic($font-weight: 400);
+
+                &:hover {
+                    @include btn_gold($background-color: #DAA520, $border: 1px solid #FFFFFF);
+                    @include text_italic($font-weight: 600);
+                }
+            }
+        }
+    }
+
+    /**********************************************************************************************/
+
+    //style card.jsx entrée/plat/dessert
+
+    .container_card {
+        display: flex;
+        justify-self: center;
+        justify-content: center;
+        max-width: 70%;
+        min-width: 640px;
+        height: fit-content;
+        margin: 50px 0;
+
+
+
+        .container_content {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin: 30px 0;
+            padding: 0;
+
+
+            .container_top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 100px;
+                padding: 0 0 25px 0;
+
+                h4 {
+                    display: block;
+                    width: fit-content;
+                    @include text_italic($font-weight: 400, $font-size: 1.3rem);
+                    @include text_style_center();
+                    @include c_white();
+                }
+            }
+
+            ;
+
+            .container_down {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                min-height: 200px;
+                width: 100%;
+                height: fit-content;
+                padding: 5px;
+                @include bg_black();
+                @include border_dark_grey();
+                @include c_light_grey();
+
+                &:hover {
+                    @include bg_dark_grey();
+                    opacity: 0.8;
+                    @include border_light_grey();
+                    ;
+                }
+
+
+
+                .text {
+                    display: block;
+                    width: 100%;
+                    @include text_normal();
+                    @include text_style_center();
+
+                }
+
+                .container_image {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: center;
+                    justify-items: center;
+                    overflow: hidden;
+                    width: 32%;
+                    height: 180px;
+                    padding: 4px;
+                    @include border_light_grey();
+                    @include bg_none();
+                }
+
+                img {
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+
+
+
+
+
+
+                .container_detail {
+                    width: 40%;
+                    display: flex;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .container_prix {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+
+                .btn_modificate {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 10%;
+                    height: 60%;
+
+                    .btn_update,
+                    .btn_delete {
+                        width: 35px;
+                        height: 35px;
+                        border: none;
+                        cursor: pointer;
+                        @include bg_none;
+
+                        &:hover {
+
+                            transform: rotate(30deg);
+                            transition: transform 0.3s ease;
+
+
+                        }
+                    }
+
+
+                }
+
+
+
+            }
+
+        }
+
+    }
+
+
+
+    .form_card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-top: 25px;
+        padding: 5px;
+        height: fit-content;
+        //@include bg_dark_grey();
+        @include border_light_grey();
+
+
+
+        .btn_close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            justify-items: flex-end;
+            width: fit-content;
+            background-color: transparent;
+            padding: 0;
+            border: none;
+
+            img {
+                display: block;
+                width: 30px;
+            }
+
+            &:hover {
+                img {
+                    transform: rotate(10deg);
+                    transition: transform 0.2s ease;
+                }
+            }
+        }
+
+
+        .titre,
+        .detail,
+        .photo,
+        .prix {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px;
+            @include c_goldenrod();
+            @include text_style_center();
+            @include text_normal($font-weight: 400);
+
+            input,
+            textarea {
+                display: block;
+                box-sizing: border-box;
+                width: 80%;
+                height: fit-content;
+                margin-top: 5px;
+                @include text_style_center();
+                @include text_normal($font-weight: 300);
+                border: 2px solid black;
+            }
+        }
+
+        .btn_send {
+            width: 30%;
+            margin: 25px 0;
+            @include btn_gold($border: 1px solid #FFFFFF);
+            @include text_italic($font-weight: 400);
+
+            &:hover {
+                @include btn_gold($background-color: #DAA520, $border: 1px solid #FFFFFF);
+                @include text_italic($font-weight: 600);
+            }
+        }
+    }
+
+
+}

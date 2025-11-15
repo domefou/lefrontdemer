@@ -1,0 +1,398 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+
+    .title_body {
+        @include text_style_center($margin: 50px 0 0 0);
+        @include text_italic($font-size: 1.6rem, $font-weight: 400);
+    }
+
+    .description_reservation {
+        width: 50%;
+        min-width: 452px;
+        margin: auto;
+        height: fit-content;
+        margin-top: 50px;
+        padding: 15px;
+
+        .paragraph_1 {
+
+            width: 100%;
+            height: fit-content;
+            margin-bottom: 30px;
+
+            p {
+                @include c_white();
+                @include text_italic();
+                @include text_style_center();
+            }
+        }
+
+        .paragraph_2 {
+            width: 100%;
+            height: fit-content;
+            margin-bottom: 30px;
+
+            p {
+                @include c_white();
+                @include text_italic();
+                @include text_style_center();
+            }
+        }
+
+        .paragraph_3 {
+            width: 100%;
+            height: fit-content;
+            margin-bottom: 30px;
+
+            p {
+
+                @include c_white();
+                @include text_italic();
+                @include text_style_center();
+
+                span {
+                    @include text_normal($font-size: 1.2rem, $font-weight: 600);
+                }
+            }
+
+        }
+    }
+
+
+    .banner_agenda {
+        width: 100%;
+        height: 200px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+
+
+    .form_reservation {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        min-width: 452px;
+        margin: 60px auto 30px;
+        padding: 5px;
+        @include bg_black;
+        @include border_light_grey;
+
+        fieldset {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 50px 15px 15px 15px;
+            @include bg_dark_grey;
+            @include border_light_grey;
+            z-index: 3;
+            object-fit: contain;
+
+
+            .Img_background {
+                position: absolute;
+
+                top: -70px;
+                height: 100%;
+                max-height: 606px;
+                opacity: 0.1;
+                z-index: 1;
+
+            }
+
+            legend {
+                padding-bottom: 30px;
+                @include text_style_center();
+                @include text_italic($font-size: 1.6rem, $font-weight: 400);
+
+                h2 {
+                    display: block;
+                    width: 100%;
+                    @include text_style_center();
+                    @include text_italic($font-weight: 400, $font-size: 1.6rem)
+                }
+
+            }
+
+            .content_top {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+                margin-top: 25px;
+                max-width: 100%;
+                min-width: 70%;
+                padding: 10px;
+                z-index: 2;
+
+                .date {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    text-align: left;
+                    width: 100%;
+                    height: 40px;
+                    padding-left: 10px;
+                    box-sizing: border-box;
+                    margin-bottom: 30px;
+                    @include text_italic();
+                    @include border_bottom();
+                    z-index: 2;
+
+                    input {
+                        height: 25px;
+                        box-sizing: border-box;
+                        width: 50%;
+                    }
+                }
+
+                .heure {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    height: 40px;
+                    padding-left: 10px;
+                    box-sizing: border-box;
+                    text-align: left;
+                    margin-bottom: 30px;
+                    @include text_italic();
+                    @include border_bottom();
+                    z-index: 2;
+
+                    select {
+                        width: 50%;
+                        height: 25px;
+                        box-sizing: border-box;
+
+                        option {
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+
+                        .midi {
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+
+                        .soir {
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+                    }
+
+                }
+
+                .nbr_couvert {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    height: 40px;
+                    padding-left: 10px;
+                    text-align: left;
+                    @include text_italic();
+                    @include border_bottom();
+                    z-index: 2;
+
+                    select {
+                        display: flex;
+                        width: 50%;
+                        height: 25px;
+                        box-sizing: border-box;
+
+                        option {
+                            width: 100%;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+            }
+
+
+            .submit {
+
+                width: 40%;
+                height: 40px;
+                margin: 70px auto 30px;
+                border-radius: 5px;
+                @include btn_gold();
+                z-index: 2;
+
+                &:hover {
+                    cursor: pointer;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    @include btn_gold($background-color: #DAA520,
+                        $border: 1px solid #FFFFFF);
+                }
+            }
+
+
+
+
+            small {
+                display: block;
+                width: 70%;
+                @include text_style_center();
+                @include c_3();
+            }
+
+
+
+            .form_message {
+                margin-top: 10px;
+            }
+
+            .form_message.error {
+                color: red;
+            }
+
+            .form_message.success {
+                color: green;
+            }
+
+
+        }
+    }
+
+
+
+
+    .horaires_reservations {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 80px auto 100px;
+        width: 70%;
+
+
+        .container_title {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            width: 100%;
+            text-align: center;
+            height: 80px;
+
+
+            h2 {
+                display: block;
+                width: fit-content;
+                @include text_normal($font-size: 1.6rem, $font-weight: 400);
+            }
+
+        }
+
+        .title_horaires {
+            width: 100%;
+        }
+
+        .container_horaire {
+            width: 60%;
+
+
+            .tittle_journée {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+
+                .content_tittle {
+                    width: 33%;
+                    text-align: center;
+                    @include text_italic($font-weight: 400);
+                }
+            }
+
+            .horaires_content {
+
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                margin-top: 25px;
+
+                .jour {
+                    display: flex;
+                    flex-direction: column;
+                    width: 33%;
+
+                    .open {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        @include text_italic();
+                    }
+
+                    .close {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        color: red;
+                        @include text_italic($textDecoration: line-through);
+                    }
+                }
+
+                .horaires_midi {
+                    display: flex;
+                    flex-direction: column;
+                    width: 33%;
+                    border-right: solid 1px goldenrod;
+
+                    .open {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        @include text_italic();
+                    }
+
+                    .close {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        color: red;
+                        @include text_italic($textDecoration: line-through);
+                    }
+                }
+
+                .horaires_soir {
+
+                    display: flex;
+                    flex-direction: column;
+                    width: 33%;
+
+                    .open {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        @include text_italic();
+                    }
+
+                    .close {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                        color: red;
+                        @include text_italic($textDecoration: line-through);
+                    }
+                }
+            }
+        }
+    }
+}

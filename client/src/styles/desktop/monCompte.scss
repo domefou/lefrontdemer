@@ -1,0 +1,760 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+
+    .title_body {
+        @include text_style_center($margin: 50px 0 0 0);
+        @include text_italic($font-size: 1.6rem, $font-weight: 400);
+    }
+
+    .User_container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        max-width: 1100px;
+        width: 100%;
+        align-items: center;
+        margin: 25px auto 100px;
+
+        .btn_onglet {
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            min-width: 678px;
+            max-width: 1100px;
+            height: fit-content;
+            border-radius: 0 0 8px 8px;
+            border-left: 1px solid #3B948E;
+            border-right: 1px solid #3B948E;
+            border-bottom: 1px solid #3B948E;
+            box-shadow: 0 -4px 10px #3B948E;
+
+
+
+            .btn_en-attente,
+            .btn_en-cours,
+            .btn_passees {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 33%;
+                height: 40px;
+
+                @include btn_gold($background-color: #171717);
+                @include c_grey();
+                @include text_normal($font-size: 0.9rem, $font-weight: 400);
+                @include text_style_center();
+
+
+
+                &:hover {
+                    @include btn_gold($background-color: #121212);
+
+                    @include c_light_grey();
+
+                }
+            }
+
+            .btn_en-attente {
+                border-radius: 0 0 0 8px;
+            }
+
+            .btn_passees {
+                border-radius: 0 0 8px 0;
+            }
+        }
+
+
+        h3 {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            height: fit-content;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+            @include bg_gold();
+            @include c_black();
+            @include text_style_center();
+            @include text_italic($font-size: 1.6rem, $font-weight: 400);
+        }
+
+        .container_resa_en-attente,
+        .container_resa_en-cours {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 1100px;
+            height: fit-content;
+            padding: 15px;
+            @include bg_dark_grey;
+            @include border_light_grey();
+
+
+            .User_nom-resa,
+            .User_date-resa,
+            .User_heure-resa,
+            .User_couvert-resa,
+            .User_etat-resa,
+            .User_btn {
+                display: block;
+                width: 16%;
+                height: fit-content;
+                box-sizing: border-box;
+                @include text_style_center();
+                @include text_normal($font-weight: 400,
+                    $font-size: 0.8rem, )
+            }
+
+            .User_resa_en-attente_head,
+            .User_resa_en-cours_head {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                min-height: 40px;
+                height: fit-content;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                @include c_goldenrod();
+                @include text_normal($font-weight: 400);
+                @include border_light_grey($radius: 0 0 8px 8px);
+                @include bg_black();
+
+            }
+
+            .User_resa_en-attente,
+            .User_resa_en-cours {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                box-sizing: border-box;
+                margin-bottom: 2px;
+                @include c_light_grey();
+                @include border_dark_grey();
+                @include bg_black();
+                @include text_normal($font-weight: 400, $font-size: 1rem);
+
+                &:hover {
+                    @include bg_dark_grey();
+                    @include border_light_grey();
+                }
+
+                .User_etat-resa {
+                    &.etat-acceptée {
+                        color: green;
+                        font-weight: bold;
+                    }
+
+                    &.etat-refusée {
+                        color: red;
+                        font-weight: bold;
+                    }
+                }
+
+
+
+                .User_resa-actions {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 16%;
+                    height: fit-content;
+                    box-sizing: border-box;
+                    border: none;
+                    padding: 5px 10px;
+                    @include text_style_center();
+                    @include text_normal($font-weight: 400,
+                        $font-size: 0.8rem);
+
+
+                    .btn_annuler {
+
+                        @include c_white;
+                        @include bg_black;
+                        width: 100%;
+                        height: fit-content;
+                        padding: 0;
+                        margin: 0;
+                        border-radius: 5px;
+                        border: 1px solid red;
+
+
+                        &:hover {
+                            @include c_red();
+                            @include text_normal($font-weight: 500, $font-size: 0.8rem);
+                        }
+
+                    }
+                }
+
+
+            }
+        }
+
+
+
+
+
+
+
+
+
+        .container_resa_passe {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 1100px;
+            height: fit-content;
+            padding: 15px;
+            @include bg_dark_grey;
+            @include border_light_grey();
+
+
+
+
+            .User_nom-resa,
+            .User_date-resa,
+            .User_heure-resa,
+            .User_couvert-resa,
+            .User_etat-resa {
+                display: block;
+                width: 20%;
+                height: fit-content;
+                box-sizing: border-box;
+                @include text_style_center();
+                @include text_normal($font-weight: 400,
+                    $font-size: 0.8rem, )
+            }
+
+
+            .User_resa_passe_head {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                min-height: 40px;
+                height: fit-content;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                @include c_goldenrod();
+                @include text_normal($font-weight: 400);
+                @include border_light_grey($radius: 0 0 8px 8px);
+                @include bg_black();
+
+            }
+
+
+
+            .User_resa_passe {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                box-sizing: border-box;
+                margin-bottom: 2px;
+                @include c_light_grey();
+                @include border_dark_grey();
+                @include bg_black();
+                @include text_normal($font-weight: 400, $font-size: 1rem);
+
+                &:hover {
+                    @include bg_dark_grey();
+                    @include border_light_grey();
+                }
+
+                .User_etat-resa {
+                    &.etat-acceptée {
+                        color: green;
+                        font-weight: bold;
+                    }
+
+                    &.etat-refusée {
+                        color: red;
+                        font-weight: bold;
+                    }
+                }
+
+                //s'affiche seulement aprés 20 reservation disponnibles
+                .btn_load-more {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: fit-content;
+                    height: fit-content;
+                    @include btn_gold($background-color: #48B5AE);
+
+
+
+                    @include c_black();
+                    @include text_normal($font-size: 0.9rem, $font-weight: 400);
+                    @include text_style_center();
+
+                    &:hover {
+                        @include bg_4();
+                        @include c_white();
+                    }
+                }
+            }
+        }
+    }
+
+
+    .Admin_container {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        margin: 25px auto 100px;
+
+
+
+        .btn_onglet {
+
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            min-width: 678px;
+            max-width: 1100px;
+            height: fit-content;
+            border-radius: 0 0 8px 8px;
+            border-left: 1px solid #3B948E;
+            border-right: 1px solid #3B948E;
+            border-bottom: 1px solid #3B948E;
+            box-shadow: 0 -4px 10px #3B948E;
+
+
+
+            .btn_en-attente,
+            .btn_en-cours,
+            .btn_a-venir,
+            .btn_passees {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25%;
+                height: 40px;
+
+                @include btn_gold($background-color: #171717);
+                @include c_grey();
+                @include text_normal($font-size: 0.9rem, $font-weight: 400);
+                @include text_style_center();
+
+
+
+                &:hover {
+                    @include btn_gold($background-color: #121212);
+
+                    @include c_light_grey();
+
+                }
+            }
+
+            .btn_en-attente {
+                border-radius: 0 0 0 8px;
+            }
+
+            .btn_passees {
+                border-radius: 0 0 8px 0;
+            }
+        }
+
+
+
+        h3 {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            height: fit-content;
+            align-items: center;
+            border-radius: 8px 8px 0 0;
+            @include bg_gold();
+            @include c_black();
+            @include text_style_center();
+            @include text_italic($font-size: 1.6rem, $font-weight: 400);
+        }
+
+
+        .Admin_nom-resa,
+        .Admin_date-resa,
+        .Admin_heure-resa,
+        .Admin_couvert-resa,
+        .Admin_etat-resa {
+            display: block;
+            width: fit-content;
+            min-width: 20%;
+            box-sizing: border-box;
+            @include text_style_center();
+        }
+
+
+        ////////////////// CONTAINER GESTION DES RESERVATIONS ADMIN    ///////////////////////////////////
+
+        .container_resa_en-attente {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 1100px;
+            height: fit-content;
+            padding: 15px;
+            @include bg_dark_grey;
+            @include border_light_grey();
+
+            .Admin_resa_en-attente_head {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                min-height: 40px;
+                height: fit-content;
+                box-sizing: border-box;
+                margin-bottom: 15px;
+                @include border_light_grey($radius: 0 0 8px 8px);
+                @include bg_black();
+                @include text_normal($font-weight: 400);
+                @include c_goldenrod();
+
+                .Admin_action {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    width: 20%;
+                    @include text_style_center();
+                }
+            }
+
+            .Admin_resa_en-attente {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 100%;
+                height: 40px;
+                box-sizing: border-box;
+                margin-bottom: 2px;
+                @include c_light_grey();
+                @include border_dark_grey();
+                @include bg_black();
+                @include text_normal($font-weight: 400, $font-size: 1rem);
+
+                &:hover {
+                    @include bg_dark_grey();
+                    @include border_light_grey();
+                }
+
+                p {
+                    display: block;
+                    width: fit-content;
+                    min-width: 20%;
+                    box-sizing: border-box;
+                    @include text_style_center();
+                }
+            }
+
+            .Admin_resa-actions {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 20%;
+                padding: 2px 0px;
+
+                button {
+                    display: block;
+                    width: fit-content;
+                    min-width: 45%;
+                    border: none;
+                }
+
+                .btn_accepté {
+                    color: green;
+                    font-weight: 500;
+                    border-radius: 8px;
+
+                    &:hover {
+                        background-color: green;
+                        color: white;
+                    }
+                }
+
+                .btn_refusé {
+                    color: red;
+                    font-weight: 500;
+                    border-radius: 8px;
+
+                    &:hover {
+                        background-color: red;
+                        color: white;
+                    }
+                }
+            }
+        }
+
+
+        //////////////////       CONTAINER RESERVATION DU JOUR ADMIN  MIDI / SOIR   ///////////////////////////////////
+        .container_resa_du-jour {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            max-width: 1100px;
+            height: fit-content;
+            padding: 15px;
+            @include bg_dark_grey;
+            @include border_light_grey();
+
+            .container_resa_du-midi,
+            .container_resa_du-soir {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: fit-content;
+                box-sizing: border-box;
+                margin: 25px 0;
+
+                .Admin_resa_du-midi_head,
+                .Admin_resa_du-soir_head {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                    min-height: 40px;
+                    height: fit-content;
+                    box-sizing: border-box;
+                    margin-bottom: 15px;
+                    @include border_light_grey($radius: 0 0 8px 8px);
+                    @include bg_black();
+                    @include text_normal($font-weight: 400);
+                    @include c_goldenrod();
+                }
+
+                .Admin_resa_du-midi,
+                .Admin_resa_du-soir {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 100%;
+                    min-height: 40px;
+                    box-sizing: border-box;
+                    margin-bottom: 2px;
+
+                    @include c_light_grey();
+                    @include border_dark_grey();
+                    @include bg_black();
+                    @include text_normal($font-weight: 400, $font-size: 1rem);
+
+
+                    &:hover {
+                        @include bg_dark_grey();
+                        @include border_light_grey();
+                    }
+
+                    p {
+                        display: block;
+                        width: fit-content;
+                        min-width: 20%;
+                        box-sizing: border-box;
+                        @include text_style_center();
+                    }
+
+                    .Admin_etat-resa {
+                        &.etat-acceptée {
+                            color: green;
+                            font-weight: bold;
+                        }
+
+                        &.etat-refusée {
+                            color: red;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+    //////////////////      CONTAINER RESERVATION EN COURS / ET PASSEES ADMIN     ///////////////////////////////////
+
+    .container_resa_en-cours,
+    .container_resa_passe {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        max-width: 1100px;
+        height: fit-content;
+        padding: 15px;
+        @include bg_dark_grey;
+        @include border_light_grey();
+
+
+        .Admin_resa_en-cours_head,
+        .Admin_resa_passe_head {
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            min-height: 40px;
+            height: fit-content;
+            box-sizing: border-box;
+            margin-bottom: 15px;
+            @include border_light_grey($radius: 0 0 8px 8px);
+            @include bg_black();
+            @include text_normal($font-weight: 400);
+            @include c_goldenrod();
+
+
+
+
+        }
+
+        .Admin_resa_en-cours,
+        .Admin_resa_passe {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            min-height: 40px;
+            height: fit-content;
+            box-sizing: border-box;
+            margin-bottom: 2px;
+            @include c_light_grey();
+            @include border_dark_grey();
+            @include bg_black();
+            @include text_normal($font-weight: 400, $font-size: 1rem);
+
+
+            &:hover {
+                @include bg_dark_grey();
+                @include border_light_grey();
+            }
+
+            p {
+                display: block;
+                width: fit-content;
+                min-width: 20%;
+                box-sizing: border-box;
+                @include text_style_center();
+            }
+
+            // Même élément: utiliser & pour composer les classes
+            .Admin_etat-resa {
+                &.etat-acceptée {
+                    color: green;
+                    font-weight: bold;
+                }
+
+                &.etat-refusée {
+                    color: red;
+                    font-weight: bold;
+                }
+            }
+
+
+
+        }
+
+
+
+
+        //uniquement dans le container resa passees
+        .filter_month {
+            display: flex;
+            flex-direction: row;
+            justify-content: end;
+            align-items: end;
+            width: 100%;
+            height: 50px;
+            padding-bottom: 8px;
+
+            input {
+                height: fit-content;
+                min-height: 30px;
+                box-sizing: border-box;
+                border: 1px solid black;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            label {
+                height: fit-content;
+                min-height: 30px;
+                box-sizing: border-box;
+            }
+
+
+            button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                border: 1px solid black;
+                box-sizing: border-box;
+                @include reset();
+
+                .img_download {
+                    width: 20px;
+                    height: 20px;
+
+                }
+
+                &:hover {
+                    background-color: grey;
+                }
+            }
+        }
+
+
+        .btn_load-more {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+            height: fit-content;
+            @include btn_gold($background-color: #48B5AE);
+
+
+
+            @include c_black();
+            @include text_normal($font-size: 0.9rem, $font-weight: 400);
+            @include text_style_center();
+
+
+
+            &:hover {
+                @include bg_4();
+                @include c_white();
+            }
+        }
+    }
+}

@@ -1,0 +1,102 @@
+@use '../mixin.scss' as *;
+
+
+@media (max-width: 767px) {
+
+    .container_propos {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+
+        h2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            @include text_style_center();
+            @include text_italic($font-size: 1.8rem, $font-weight: 500);
+            @include c_white();
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+            @include text_style_center();
+            @include text_normal();
+            @include c_3();
+
+            &:hover {
+                @include c_4();
+            }
+        }
+
+        .baner_propos {
+
+            width: 100%;
+            height: 150px;
+            margin-bottom: 50px;
+            overflow: hidden;
+
+            img {
+                height: 100%;
+            }
+        }
+
+        .intro_propos,
+        .droits_propos {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 95%;
+            margin-bottom: 35px;
+            padding: 0 25px;
+        }
+
+        .location_propos {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 95%;
+            margin-bottom: 35px;
+            padding: 0 25px;
+            @include border_bottom();
+
+
+
+            .location_text {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 95%;
+            }
+
+            .location_map {
+
+                width: 80%;
+                margin: 25px 0;
+
+                iframe {
+                    width: 100%;
+                    height: 150px;
+                    border: none;
+                }
+            }
+        }
+
+        p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            @include text_style_center();
+            @include text_italic();
+            @include c_white();
+        }
+    }
+}

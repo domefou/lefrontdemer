@@ -1,0 +1,266 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+
+    .footer {
+        width: 100%;
+
+        .Copyright {
+            width: 100%;
+            @include bg_goldenrod;
+            @include text_italic($font-weight: 400);
+            @include text_style_center;
+            @include c_black;
+        }
+
+
+        .footer_container {
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            justify-self: center;
+            width: 90%;
+            height: fit-content;
+            box-sizing: border-box;
+            border: 1px solid #DAA520;
+            border-bottom: none;
+
+            .border_top {
+                border-top: 1px solid white;
+                padding-top: 25px;
+            }
+
+            /**********************************************************/
+
+            .contain_info {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                margin: auto;
+                width: 90%;
+                padding-top: 35px;
+                height: fit-content;
+
+
+
+
+
+
+
+                .info_adresse {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 50%;
+
+                    a {
+                        @include text_normal();
+
+                        &:hover {
+                            @include text_normal($textDecoration: underline)
+                        }
+                    }
+
+
+
+
+                    .text_info {
+                        display: block;
+                        text-align: center;
+                        align-items: center;
+                        width: 70%;
+
+                        @include text_normal;
+                        @include text_style_center;
+                        @include c_goldenrod;
+                    }
+
+                    .text_link {
+                        display: block;
+                        text-align: center;
+                        align-items: center;
+                        width: fit-content;
+
+                        @include text_normal;
+                        @include text_style_center;
+                        @include c_goldenrod;
+                    }
+
+                    .contact {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%;
+
+                        .text_info_none {
+
+                            display: flex;
+                            width: 100%;
+                            justify-content: center;
+
+                            .text_none {
+                                display: inline-block;
+                                @include text_normal();
+                                @include c_goldenrod;
+                                margin-right: 20px;
+
+                            }
+                        }
+
+
+
+                    }
+
+                    .adresse {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        width: 100%;
+                        padding-top: 35px;
+
+
+                    }
+                }
+
+                .info_social {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    width: 50%;
+
+
+                    .text_social {
+                        display: block;
+                        text-align: center;
+                        align-items: center;
+                        min-width: 70%;
+                        width: fit-content;
+
+                        @include text_normal;
+                        @include text_style_center;
+                        @include c_white;
+                    }
+
+
+
+                    .social_network {
+                        display: flex;
+                        justify-content: space-around;
+                        justify-self: center;
+                        width: 40%;
+                        padding-top: 15px;
+
+                        .social_link {
+                            box-sizing: border-box;
+                            width: 100%;
+                            max-width: 30px;
+
+                            filter: invert(100%) sepia(100%) saturate(800%) hue-rotate(90deg);
+
+
+
+                            &:hover {
+                                filter: invert(100%) sepia(100%) saturate(300%) hue-rotate(120deg);
+
+                            }
+
+                        }
+                    }
+
+                    .title_container {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+
+                        width: 100%;
+                        padding-top: 20px;
+
+                        .footer_title {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            width: 50%;
+
+                            h3 {
+                                display: inline-block;
+                                width: 100%;
+                                padding: 0;
+                                @include text_italic($font-weight: 500, $font-size: 1.6rem);
+                                @include text_style_center ($align: left);
+                            }
+
+                            h4 {
+                                display: inline-block;
+                                width: 100%;
+                                @include text_italic($font-weight: 500, $font-size: 1.4rem);
+                                @include text_style_center ($align: right);
+                            }
+                        }
+
+                        .footer_logo {
+                            display: flex;
+                            justify-content: center;
+
+                            &:hover {
+                                filter: invert(0.4);
+                            }
+                        }
+                    }
+                }
+            }
+
+            /**************************************************************/
+
+            .contain_onglet {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 60px;
+                padding-top: 25px;
+
+
+
+                .footer_onglet-list {
+                    display: flex;
+                    justify-content: space-around !important;
+                    height: fit-content;
+                    min-height: fit-content;
+                    min-width: 65%;
+                    max-width: 100%;
+                    padding-right: 3%;
+                    margin: 0 !important;
+                    list-style: none;
+                    @include z_index();
+
+                    .nav-item {
+                        @include onglet_barnav();
+                        @include z_index();
+
+                        .nav-link {
+
+                            @include text_italic;
+                            @include text_style_center;
+                            @include c_white;
+                            font-weight: 100;
+
+
+
+                            @include nav_link();
+                            @include z_index();
+
+
+                        }
+
+                        :hover {
+                            @include text_italic($textDecoration: underline);
+                        }
+
+
+                    }
+                }
+            }
+
+
+        }
+    }
+}

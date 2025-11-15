@@ -1,0 +1,104 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+    .container_gen {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: fit-content;
+
+        .title {
+            display: block;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 70px;
+            @include text_style_center($line-height: 70px);
+            @include text_italic($font-size: 2rem, $font-weight: 500);
+            @include c_white();
+        }
+
+
+        .confidential_banner {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 250px;
+
+            img {
+                position: absolute;
+                width: 100%;
+                top: -160px;
+            }
+        }
+
+
+        .container_politique {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+
+            .box_text {
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 60%;
+                height: fit-content;
+
+                padding: 25px;
+                @include border-bottom();
+
+
+
+                h4 {
+                    display: block;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 50px;
+                    margin-bottom: 25px;
+                    @include text_italic($font-size: 1.4rem, $font-weight: 400);
+                    @include text_style_center($line-height: 50px);
+                    @include c_white();
+                }
+
+
+                ul {
+                    width: 100%;
+                    @include text_italic();
+                    @include text_style_left();
+                    @include c_white();
+                }
+
+                .center {
+                    display: block;
+                    width: 100%;
+                    @include text_italic();
+                    @include text_style_center();
+                    @include c_white();
+                }
+
+
+                .left {
+                    display: block;
+                    width: 100%;
+                    @include text_italic();
+                    @include text_style_left();
+                    @include c_white();
+                }
+
+                .maj {
+                    @include text_italic($font-weight: 600);
+                }
+            }
+        }
+
+    }
+
+}

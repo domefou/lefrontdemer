@@ -1,0 +1,436 @@
+// paragraphe
+@use './fonts.scss' as *;
+
+
+@mixin reset($margin: 0, $padding: 0) {
+    margin: $margin !important;
+    padding: $margin !important;
+
+}
+
+
+//paragraph style
+
+
+
+@mixin text_italic($font-family: 'Newsreader',
+    $font-style: italic,
+    $font-weight: 200,
+    $font-size: 1.2rem,
+    $textDecoration: none) {
+    font-family: $font-family !important;
+    font-style: $font-style !important;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    text-decoration: $textDecoration !important;
+}
+
+@mixin text_normal($font-family: 'Newsreader',
+    $font-style: normal,
+    $font-weight: 200,
+    $font-size: 1.2rem,
+    $textDecoration: none) {
+    font-family: $font-family !important;
+    font-style: $font-style !important;
+    font-weight: $font-weight;
+    font-size: $font-size;
+    text-decoration: $textDecoration !important;
+}
+
+
+@mixin text_style_center($align: center, $vertical-align: middle, $line-height: 30px,
+    $margin: 0) {
+    text-align: $align !important;
+    vertical-align: $vertical-align !important;
+    line-height: $line-height !important;
+    margin: $margin !important;
+}
+
+@mixin text_style_left($align: left, $vertical-align: middle, $line-height: 30px,
+    $margin: 0) {
+    text-align: $align !important;
+    vertical-align: $vertical-align !important;
+    line-height: $line-height !important;
+    margin: $margin !important;
+}
+
+
+/*****************************************************************************************************/
+
+//titre
+
+
+@mixin title_margin($margin-bottom: 5px) {
+    margin-bottom: $margin-bottom !important;
+}
+
+/*****************************************************************************************************/
+
+
+//container lien
+
+
+@mixin nav_link($display: inline-block,
+    $height: fit-content,
+    $width: fit-content,
+    $padding: 0,
+    $line-height: 20px) {
+    display: $display !important;
+    height: $height !important;
+    width: $width !important;
+    padding: $padding !important;
+    line-height: $line-height !important;
+
+}
+
+
+/****************************************************************************************************/
+
+@mixin border_bottom($box-sizing: border-box,
+    $border-bottom: 1px solid #DAA520, $radius: 0) {
+    box-sizing: $box-sizing;
+    border-bottom: $border-bottom !important;
+    border-radius: $radius !important;
+}
+
+
+@mixin btn_border($box-sizing: border-box,
+    $border: 1px solid #FFFFFF) {
+    box-sizing: $box-sizing;
+    border: $border !important;
+}
+
+@mixin border_grey($box-sizing: border-box,
+    $border: 1px solid #353535) {
+    box-sizing: $box-sizing;
+    border: $border !important;
+}
+
+
+@mixin btn_style($display: inline-block,
+    $text-align: center,
+    $line-height: 20px,
+    $vertical-align: middle) {
+    display: $display;
+    text-align: $text-align !important;
+    line-height: $line-height !important;
+    vertical-align: $vertical-align !important;
+
+}
+
+@mixin btn_gold($display: inline-block,
+    $box-sizing: border-box,
+    $text-align: center,
+    $line-height: 20px,
+    $vertical-align: middle,
+    $background-color: #FFD700,
+    $border: 1px solid #000000) {
+    display: $display;
+    box-sizing: $box-sizing;
+    text-align: $text-align !important;
+    line-height: $line-height !important;
+    vertical-align: $vertical-align !important;
+    background-color: $background-color !important;
+    border: $border !important;
+
+}
+
+@mixin desktop_reservation($width: 50%, $height: 30px, $line-height: 30px) {
+    width: $width !important;
+    height: $height !important;
+}
+
+@mixin mobile_reservation($width: 100%, $height: 30px, $line-height: 30px) {
+    width: $width !important;
+    height: $height !important;
+}
+
+
+
+
+@mixin btn_desktop($width: fit-content,
+    $min-width: 160px,
+    $height: 30px,
+    $padding: 0) {
+    width: $width;
+    min-width: $min-width;
+    height: $height;
+    padding: $padding;
+}
+
+
+
+
+@mixin btn_mobile($width: 100%,
+    $min-width: 100px,
+    $height: 30px,
+    $padding: 0) {
+    width: $width;
+    min-width: $min-width;
+    height: $height;
+    padding: $padding;
+}
+
+/****************************************************************************************************/
+
+
+/***************************************************************************************************/
+
+
+
+/***************************************************************************************************/
+
+
+//z index
+
+@mixin z_index($z_index: 10) {
+    z-index: $z_index !important;
+}
+
+//onglet ASPECT general
+
+
+
+@mixin onglet_barnav($display: flex,
+    $width: fit-content,
+    $height: 27px,
+    $margin: 0 15px,
+    $flex-direction: column,
+    $align-items: center,
+    $box-sizing: border-box, ) {
+
+
+    display: $display !important;
+    flex-direction: $flex-direction !important;
+    width: $width !important;
+    height: $height !important;
+    margin: $margin !important;
+    align-items: $align-items !important;
+    box-sizing: $box-sizing !important;
+}
+
+@mixin hover_onglet_barnav($width: 130%, $height: 2px, $transition: width 0.4s ease-out) {
+    width: $width;
+    height: $height;
+    transition: $transition;
+}
+
+/***************************************************************************************************/
+
+
+
+//color
+
+
+@mixin c_light_grey($light_grey: #c9c9c9) {
+    color: $light_grey !important;
+}
+
+@mixin c_white($white: #FFFFFF) {
+    color: $white !important;
+}
+
+@mixin c_grey($grey: #616161) {
+    color: $grey !important;
+}
+
+@mixin c_black($black: #000000) {
+    color: $black !important;
+}
+
+@mixin c_red($red: red) {
+    color: $red !important;
+}
+
+@mixin c_goldenrod($goldenrod: #DAA520) {
+    color: $goldenrod !important;
+}
+
+@mixin c_gold($gold: #FFD700) {
+    color: $gold !important;
+}
+
+@mixin c_paleGoldenrod($paleGoldenrod: #EEE8AA) {
+    color: $paleGoldenrod !important;
+}
+
+@mixin c_lightGoldenrod($lightGoldenrod: #FAFAD2) {
+    color: $lightGoldenrod !important;
+}
+
+@mixin c_bronze($bronze: #B08D57) {
+    color: $bronze !important;
+}
+
+@mixin c_silver($silver: #C0C0C0) {
+    color: $silver !important;
+}
+
+
+@mixin c_1($blue1: #57D9D0) {
+    color: $blue1 !important;
+}
+
+@mixin c_2($blue2: #48B5AE) {
+    color: $blue2 !important;
+}
+
+@mixin c_3($blue3: #5AE0D7) {
+    color: $blue3 !important;
+}
+
+@mixin c_4($blue4: #3B948E) {
+    color: $blue4 !important;
+}
+
+@mixin c_5($blue5: #2E736E) {
+    color: $blue5 !important;
+}
+
+@mixin c_6($blue6: #204F4C) {
+    color: $blue6 !important;
+}
+
+
+/***************************************************************************************************/
+
+//background-color
+
+
+@mixin bg_white($bg_white: #FFFFFF) {
+    background-color: $bg_white !important;
+}
+
+@mixin bg_light_grey($bg_light_grey: #9c9c9c) {
+    background-color: $bg_light_grey !important;
+}
+
+@mixin bg_grey($bg_grey: #616161) {
+    background-color: $bg_grey !important;
+}
+
+@mixin bg_dark_grey($bg_dark_grey: #2b2b2b) {
+    background-color: $bg_dark_grey !important;
+}
+
+@mixin bg_black($bg_black: #000000, $opacity: 1) {
+    background-color: $bg_black !important;
+    opacity: $opacity !important;
+}
+
+@mixin bg_smooth_black($bg_black: #121212) {
+    background-color: $bg_black !important;
+}
+
+@mixin bg_light_black($bg_black: #171717) {
+    background-color: $bg_black !important;
+}
+
+@mixin bg_goldenrod($bg_goldenrod: #DAA520) {
+    background-color: $bg_goldenrod !important;
+}
+
+@mixin bg_gold($bg_gold: #FFD700) {
+    background-color: $bg_gold !important;
+}
+
+@mixin bg_paleGoldenrod($bg_paleGoldenrod: #EEE8AA) {
+    background-color: $bg_paleGoldenrod !important;
+}
+
+@mixin bg_lightGoldenrod($bg_lightGoldenrod: #FAFAD2) {
+    background-color: $bg_lightGoldenrod !important;
+}
+
+@mixin bg_bronze($bg_bronze: #B08D57) {
+    background-color: $bg_bronze !important;
+}
+
+@mixin bg_silver($bg_silver: #C0C0C0) {
+    background-color: $bg_silver !important;
+}
+
+
+@mixin bg_1($bg_blue1: #57D9D0) {
+    background-color: $bg_blue1 !important;
+}
+
+@mixin bg_2($bg_blue2: #48B5AE) {
+    background-color: $bg_blue2 !important;
+}
+
+@mixin bg_3($bg_blue3: #5AE0D7) {
+    background-color: $bg_blue3 !important;
+}
+
+@mixin bg_4($bg_blue4: #3B948E) {
+    background-color: $bg_blue4 !important;
+}
+
+@mixin bg_5($bg_blue5: #2E736E) {
+    background-color: $bg_blue5 !important;
+}
+
+@mixin bg_6($bg_blue6: #204F4C) {
+    background-color: $bg_blue6 !important;
+}
+
+
+@mixin bg_red($bg_red: rgb(122, 0, 0), $opacity: 1) {
+    background-color: $bg_red !important;
+    opacity: $opacity !important;
+}
+
+
+
+
+
+/***************************************************************************************************/
+
+
+
+
+
+
+
+
+
+
+//personnalisation detail
+
+
+@mixin b_box_shadow($box_shadow: 1px 3px 4px 0 #384050) {
+    box-shadow: $box_shadow !important;
+
+}
+
+@mixin border_dark_grey($border: solid 1px #2b2b2b, $radius: 8px) {
+    border: $border !important;
+    border-radius: $radius !important;
+}
+
+@mixin border_light_grey($border: solid 1px #9c9c9c, $radius: 8px) {
+    border: $border !important;
+    border-radius: $radius !important;
+}
+
+
+
+
+//card 
+
+@mixin bg_none($bg_none: transparent) {
+    background-color: $bg_none !important;
+}
+
+@mixin hover_card_grey($bg_grey: rgb(40, 40, 40)) {
+    background-color: $bg_grey !important;
+}
+
+
+
+@mixin hover_card_blue($bg_blue: #4f90bec8) {
+    background-color: $bg_blue !important;
+}
+
+//bouton

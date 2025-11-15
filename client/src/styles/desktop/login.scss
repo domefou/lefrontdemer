@@ -1,0 +1,156 @@
+@use '../mixin.scss' as *;
+
+@media (min-width: 768px) {
+
+
+
+    #form_login {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+        min-width: 570px;
+        height: fit-content;
+        padding: 5px;
+        margin: 40px auto;
+
+        @include bg_dark_grey;
+        @include border_light_grey;
+
+
+
+
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            @include bg_dark_grey;
+            @include border_light_grey;
+
+            .error {
+                @include text_style_center();
+                @include text_italic($font-weight: 500);
+                @include c_red();
+            }
+
+
+
+
+            legend {
+                padding-bottom: 30px;
+                @include text_style_center();
+                @include text_italic($font-size: 1.6rem, $font-weight: 400);
+
+                h2 {
+                    display: block;
+                    width: 100%;
+                    @include text_style_center();
+                    @include text_italic($font-weight: 400, $font-size: 1.6rem)
+                }
+
+            }
+
+            .email {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                @include c_goldenrod();
+                @include text_style_left();
+
+
+
+            }
+
+            .password {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                @include c_goldenrod();
+                @include text_style_left();
+
+
+            }
+
+            input {
+                width: 60%;
+                margin-bottom: 20px;
+            }
+
+            small {
+                width: 100%;
+                @include c_3();
+                @include text_style_center();
+            }
+
+
+
+
+
+
+
+
+            .btn_submit_reset {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                width: 100%;
+                height: 70px;
+
+
+                #btn_submit {
+                    width: 35%;
+                    height: 30px;
+                    @include btn_style();
+                    @include bg_gold();
+                    @include text_style_center();
+                    @include text_italic($font-weight: 400);
+                    @include btn_border();
+                    @include c_black();
+
+                    &:hover {
+                        @include text_italic($font-weight: 500);
+                        @include bg_goldenrod();
+                        @include btn_border();
+                    }
+                }
+
+                #btn_reset {
+                    width: 35%;
+                    height: 30px;
+                    @include btn_style();
+                    @include bg_gold();
+                    @include text_style_center();
+                    @include text_italic($font-weight: 400);
+                    @include btn_border();
+                    @include c_black();
+
+
+                    &:hover {
+                        @include text_italic($font-weight: 500);
+                        @include bg_goldenrod();
+                        @include btn_border();
+
+                    }
+                }
+
+
+
+            }
+
+            .link_lost_password {
+                display: block;
+                width: 100%;
+                @include text_style_left();
+                @include text_italic();
+                @include c_3();
+            }
+        }
+
+
+    }
+}
