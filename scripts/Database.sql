@@ -14,19 +14,23 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 -- Création de la base
-CREATE DATABASE IF NOT EXISTS `le_front_de_mer` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+/* CREATE DATABASE IF NOT EXISTS `le_front_de_mer` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci; */
 
 -- Création de l’utilisateur
-CREATE USER 'frontmer_user' @'%' IDENTIFIED BY 'LFDM2025';
+/* CREATE USER 'frontmer_user' @'%' IDENTIFIED BY 'LFDM2025'; */
 
 -- Attribution des privilèges
-GRANT ALL PRIVILEGES ON le_front_de_mer.* TO 'frontmer_user' @'%';
+/* GRANT ALL PRIVILEGES ON le_front_de_mer.* TO 'frontmer_user' @'%'; */
 
-FLUSH PRIVILEGES;
+/* FLUSH PRIVILEGES; */
 
-USE `le_front_de_mer`;
+-- Utilisation de la base de données
+/* USE `le_front_de_mer`; */
 
---------------------------------------------------------
+-- Utilisation de la base de données railway
+USE `railway`;
+
+-- ------------------------------------------------------
 
 -- Table des catégories
 CREATE TABLE `categorie` (
@@ -37,7 +41,7 @@ CREATE TABLE `categorie` (
     PRIMARY KEY (`id_categorie`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
---------------------------------------------------------
+-- ------------------------------------------------------
 
 -- Table des articles
 CREATE TABLE `article` (
@@ -55,7 +59,7 @@ CREATE TABLE `article` (
     CONSTRAINT `article_ibfk_1` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id_categorie`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
---------------------------------------------------------
+-- ------------------------------------------------------
 
 -- Table des utilisateurs
 CREATE TABLE `user` (
@@ -90,7 +94,7 @@ CREATE TABLE `menu` (
     PRIMARY KEY (`id_menu`)
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
---------------------------------------------------------
+-- ------------------------------------------------------
 
 -- Table des réservations
 CREATE TABLE `reservation` (
@@ -107,9 +111,9 @@ CREATE TABLE `reservation` (
     CONSTRAINT `reservation_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 
---------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------
 -- Insertion des données
---------------------------------------------------------------------------------------
+-- ------------------------------------------------------------------------------------
 
 -- Insertion des utilisateurs
 INSERT INTO
@@ -143,7 +147,7 @@ VALUES (
         '2025-09-11 14:14:14',
         '2025-11-04 20:13:16'
     );
------------------------------------------------------------
+-- ---------------------------------------------------------
 -- Insertion des catégories
 INSERT INTO
     `categorie` (
@@ -176,7 +180,7 @@ VALUES (
         '2025-08-28 17:02:04',
         '2025-08-28 17:02:04'
     );
-----------------------------------------------------------
+-- --------------------------------------------------------
 -- Insertion des articles
 INSERT INTO
     `article` (
@@ -290,7 +294,7 @@ VALUES (
         '2025-08-29 13:12:41'
     );
 
----------------------------------------------------------
+-- -------------------------------------------------------
 -- Insertion des menus
 
 INSERT INTO
@@ -319,7 +323,7 @@ VALUES (
         '2025-11-04 16:22:23'
     );
 
-------------------------------------------------------------------------
+-- ----------------------------------------------------------------------
 -- Insertion des réservations
 INSERT INTO
     `reservation` (
@@ -483,9 +487,9 @@ VALUES (
         'refusée'
     );
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
+/* 40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */
 ;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
+/* 40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */
 ;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
+/* 40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */
 ;
