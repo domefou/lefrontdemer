@@ -277,26 +277,28 @@ const updateUser = async (req, res, next) => {
 
 
 
-const deleteUser = async (req, res, next) => {
-    //const id = req.body._id;
-    const email = req.body.email;
-    try {
-        const user = await User.findOne({ email: email });
-        req.session.email = email;
 
-        if (user) {
-            await User.deleteOne({ email: email });
-            req.session.successMessage = `Utilisateur : "${user.name}" supprimé avec succès.`;
-            return res.status(200).json({ message: 'Profil supprimé avec succès', redirectUrl: `/admin/user/${email}` });
+
+const deleteUser = async (req, res) => {
+    try {
+        // ID de l'utilisateur connecté (injecté par checkJWT)
+        const connectedUserId = req.user.id_user;
+
+        const user = await User.findOne({ where: { id_user: connectedUserId } });
+
+        if (!user) {
+            return res.status(404).json({ message: "Utilisateur introuvable" });
         }
-        else {
-            req.session.errorMessage = `Utilisateur introuvable.`;
-            return res.status(200).json({ message: 'Utilisateur introuvable.', redirectUrl: `/admin/user` });
-        }
+
+        await User.destroy({ where: { id_user: connectedUserId } });
+        return res.status(200).json({ message: "Compte supprimé avec succès" });
     } catch (error) {
-        return res.status(501).json({ message: "METHOD User:Delete = serveur introuvable", error });
+        return res.status(500).json({ message: "Erreur serveur", error });
     }
 };
+
+
+
 
 
 
@@ -307,6 +309,6 @@ module.exports = {
     newPassword: newPassword,
     requestReset: requestReset,
     getUser: getById,
-    delete: deleteUser,
+    deleteUser: deleteUser,
     updateUser: updateUser
 };

@@ -44,6 +44,7 @@ const adminMenu = require('./routes/private/admin/menu');
 const adminCarte = require('./routes/private/admin/carte');
 
 const userCompte = require('./routes/private/user/compte');
+const userDelete = require('./routes/private/user/delete');
 
 
 const contactRoutes = require('./routes/private/contact')
@@ -89,6 +90,7 @@ app.use('/admin/confidentialites', confidentialitesRoutes);
 
 
 app.use('/user/compte', userCompte);
+app.use('/user/delete', userDelete);
 app.use('/user/accueil', accueilRoutes);
 app.use('/user/carte', carteRoutes);
 app.use('/user/categorie', categorieRoutes);

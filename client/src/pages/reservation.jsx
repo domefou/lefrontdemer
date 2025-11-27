@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Layout from "../components/layout";
@@ -126,6 +127,16 @@ const Reservation = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Réservations - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Réservez votre table au restaurant Le Front de Mer aux Sables d’Olonne : consultez vos réservations en attente, en cours ou passées et profitez d’une expérience culinaire au bord de l’océan."
+                />
+            </Helmet>
+
+
+
             <h2 className="title_body">Réserver en ligne</h2>
             <div className="description_reservation">
 

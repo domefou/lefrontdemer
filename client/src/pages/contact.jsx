@@ -1,5 +1,5 @@
+import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
-//import { AuthContext } from "../context/AuthContext";
 
 import "../styles/desktop/contact.scss";
 import "../styles/mobile/contact.scss";
@@ -99,6 +99,14 @@ const Contact = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Contact - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Contactez le restaurant Le Front de Mer aux Sables d’Olonne : adresse, téléphone et réservation en ligne."
+                />
+            </Helmet>
+
 
             <div className="container_contact">
 
@@ -242,11 +250,6 @@ const Contact = () => {
 
 
             </div>
-
-
-
-
-
 
         </Layout>
 

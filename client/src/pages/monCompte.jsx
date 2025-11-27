@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
@@ -35,15 +36,9 @@ const MonCompte = () => {
         visibleCount,
         handleLoadMore,
         //reservations,
-        setReservations
+        setReservations,
+        handleDeleteUser
     } = useReservations();
-
-
-
-
-
-
-
 
 
 
@@ -96,6 +91,14 @@ const MonCompte = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Mon compte - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Accédez à votre espace personnel sur Le Front de Mer : consultez vos réservations en attente, en cours ou passées, et gérez votre compte en toute simplicité, y compris la suppression de votre profil."
+                />
+            </Helmet>
+
 
 
             <h2 className="title_body">Mon compte</h2>
@@ -257,6 +260,12 @@ container_resa_passe
 
 
                     )}
+
+                    <div className="deleteUser">
+                        <p>Vous souhaitez nous quitter ? Nous en sommes désolé.<br /> Si tel est votre choix nous le respectons, il vous suffit de cliquer sur le boutton ci-dessous afin de supprimer votre compte.</p>
+                        <p>Néamoins Attention ! aprés avoir cliqué il ne sera plus possible de faire marche arrière.</p>
+                        <button onClick={handleDeleteUser}>Supprimer mon compte</button>
+                    </div>
 
                 </div>
             )}
@@ -555,8 +564,6 @@ container_resa_passe
 
                 </div>
             )}
-
-
 
 
         </Layout>

@@ -12,6 +12,18 @@ export const handleEditClick = (setFormAction, setSelectedMenu) => (menu) => {
 
 
 
+export const handleAddMenu = (setFormAction, setSelectedMenu) => {
+    setFormAction("POST");
+    setSelectedMenu({
+        nom: "",
+        entree: "",
+        plat: "",
+        dessert: "",
+        boisson: "",
+        prix: "",
+    });
+};
+
 
 
 
@@ -64,12 +76,16 @@ export const handleMenu = async ({
     };
 
     try {
-        const response = await fetch(`/admin/menu/${selectedMenu?.id_menu}`, {
+        // Choisir l’URL selon l’action
+        const url = formAction === "POST"
+            ? "/admin/menu"              // création
+            : `/admin/menu/${selectedMenu?.id_menu}`; // modification
+
+        const response = await fetch(url, {
             method: formAction,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
             credentials: 'include'
-            // credentials est indispensable pour passer le token au backend et continuer la navigation
         });
 
         const text = await response.text();
@@ -94,4 +110,5 @@ export const handleMenu = async ({
         setErrorMessage("Une erreur réseau est survenue. Veuillez réessayer.");
     }
 };
+
 

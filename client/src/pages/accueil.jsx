@@ -1,4 +1,4 @@
-
+import { Helmet } from "react-helmet-async";
 import Layout from "../components/layout";
 
 import '../styles/desktop/accueil.scss';
@@ -15,6 +15,13 @@ const Accueil = () => {
     return (
 
         <Layout>
+            <Helmet>
+                <title>Accueil - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Découvrez le restaurant Le Front de Mer aux Sables d'Olonne, cuisine maison et produits frais."
+                />
+            </Helmet>
 
             <div className="container_gen">
 

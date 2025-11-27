@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
@@ -45,6 +46,16 @@ const ResetConfirm = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Nouveau mot de passe - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Enregistrez un nouveau mot de passe pour sécuriser votre compte sur le site du restaurant Le Front de Mer."
+                />
+            </Helmet>
+
+
+
             <div className="container_new">
                 <h2>Réinitialisation du mot de passe</h2>
                 <form onSubmit={handleSubmit} id="form_new_password">

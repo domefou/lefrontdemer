@@ -3,28 +3,29 @@ import { useLocation } from 'react-router-dom';
 
 export const AuthContext = createContext();
 
+// Définir les routes publiques en dehors du composant
+const publicRoutes = [
+    '/',
+    '/SeConnecter',
+    '/Sinscrire',
+    '/LeFrontDeMer',
+    '/Apropos',
+    '/Carte',
+    '/Confidentialites',
+    '/Contact',
+    '/Reset/request',
+    '/Reset/confirm'
+];
+
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const location = useLocation();
-
-    const publicRoutes = [
-        '/',
-        '/SeConnecter',
-        '/Sinscrire',
-        '/LeFrontDeMer',
-        '/Apropos',
-        '/Carte',
-        '/Confidentialites',
-        '/Contact',
-        '/Reset/request',
-        '/Reset/confirm'
-    ];
 
     useEffect(() => {
         const path = location.pathname;
 
         const isPublicRoute =
-            publicRoutes.includes(path) || path.startsWith('/Reset/confirm/');//exclu la route de reset qui contient le token
+            publicRoutes.includes(path) || path.startsWith('/Reset/confirm/');
 
         if (!isPublicRoute) {
             fetch('/auth/check', { credentials: 'include' })
@@ -40,10 +41,10 @@ export const AuthProvider = ({ children }) => {
         }
     }, [location.pathname]);
 
-
     return (
         <AuthContext.Provider value={{ user, setUser }}>
             {children}
         </AuthContext.Provider>
     );
 };
+

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; // ✅ Import du contexte d'authentification
@@ -91,6 +92,14 @@ const Login = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Connexion - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Connectez-vous à votre compte sur le site du restaurant Le Front de Mer pour gérer vos réservations et accéder à vos informations personnelles."
+                />
+            </Helmet>
+
 
 
             <form onSubmit={handleLogin} onReset={handleReset} id="form_login">

@@ -1,4 +1,4 @@
-
+import { Helmet } from "react-helmet-async";
 import banerPropos from "../assets/image/banner002.png";
 import Layout from "../components/layout";
 
@@ -9,6 +9,13 @@ const Propos = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>À propos - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Découvrez l’histoire et la philosophie du restaurant Le Front de Mer aux Sables d’Olonne : une cuisine maison, des produits frais et une ambiance chaleureuse au bord de l’océan."
+                />
+            </Helmet>
 
             <div className="container_propos">
 
@@ -73,9 +80,6 @@ const Propos = () => {
 
 
             </div>
-
-
-
 
         </Layout>
 

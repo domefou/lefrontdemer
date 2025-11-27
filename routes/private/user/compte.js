@@ -6,8 +6,8 @@ const { checkJWT } = require('../../../middleware/secure'); // ✅ destructurati
 const { OneReservation,
     deleteReservation } = require('../../../services/reservation');
 
-const router = express.Router();
 
+const router = express.Router();
 
 
 
@@ -22,5 +22,10 @@ router.put('/:id_article', checkJWT, updateReservation);
 */
 
 router.delete('/:id_reservation', checkJWT, deleteReservation);
+
+
+
+
+
 
 module.exports = router;

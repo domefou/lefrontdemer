@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthContext.js";
 
 
 import {
+    handleAddMenu,
     handleEditClick,
     handleDeleteClick,
     handleMenu
@@ -17,6 +18,7 @@ import update_png from "../assets/image/icons/update.png";
 import delete_png from "../assets/image/icons/delete.png";
 
 import close_png from "../assets/image/icons/close.png";
+import add_png from "../assets/image/icons/add.png";
 
 
 
@@ -76,10 +78,8 @@ function Menu({ menus }) {
                 {menusValides.length > 0 ? (
                     menusValides.map((menu, index) => (
                         <div className="container_content" key={index}>
-
                             <img className='flower' src={flower} alt="fleur decoratif" />
                             <img className='arabesque' src={arabesque} alt="arabesque decoratif" />
-
 
                             <h3>Menu du jour</h3>
                             <div className="menu_top">
@@ -111,23 +111,37 @@ function Menu({ menus }) {
                                         <button className="btn_update" onClick={() => onEditClick(menu)}>
                                             <img src={update_png} alt="modifier contenu" />
                                         </button>
-                                        <button className="btn_delete" onClick={() => {
-                                            if (window.confirm("Voulez-vous vraiment supprimer ce menu ?")) {
-                                                onDeleteClick(menu);
-                                            }
-                                        }}>
-
+                                        <button
+                                            className="btn_delete"
+                                            onClick={() => {
+                                                if (window.confirm("Voulez-vous vraiment supprimer ce menu ?")) {
+                                                    onDeleteClick(menu);
+                                                }
+                                            }}
+                                        >
                                             <img src={delete_png} alt="supprimer contenu" />
                                         </button>
                                     </div>
                                 )}
                             </div>
-
                         </div>
                     ))
                 ) : (
-                    <p className="text-center">Aucun menu disponible</p>
+                    user && user.role === "admin" ? (
+                        <div className='menuNone'>
+                            <p className="text-center">Aucun menu disponible</p>
+                            <button
+                                className="btn_add"
+                                onClick={() => handleAddMenu(setFormAction, setSelectedMenu)}
+                            >
+                                <img src={add_png} alt="ajouter un dessert" />
+                            </button>
+                        </div>
+                    ) : (
+                        <p className="text-center">Nous ne disposons pas d'un menu du jour aujourd'hui</p>
+                    )
                 )}
+
 
 
             </div>

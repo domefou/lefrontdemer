@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
@@ -45,6 +46,15 @@ const ResetPassword = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Réinitialiser le mot de passe - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Demandez la réinitialisation de votre mot de passe sur Le Front de Mer : recevez un lien sécurisé par email pour définir un nouveau mot de passe."
+                />
+            </Helmet>
+
+
             <div className="container_reset">
                 <h2>Reinitialiser le mot de passe</h2>
                 <form onSubmit={handleResetPassword} id="form_reset">
@@ -87,7 +97,6 @@ const ResetPassword = () => {
 
 
             </div>
-
         </Layout>
     )
 }

@@ -1,10 +1,12 @@
 import { useState, useContext, useMemo } from "react";
 import { AuthContext } from "../context/AuthContext";
 
+
+
 // Hook personnalisé pour gérer toutes les réservations côté admin
 const useReservations = () => {
     // Récupération de l'utilisateur connecté via le contexte
-    const { user } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
 
     // État principal contenant toutes les réservations
     const [reservations, setReservations] = useState([]);
@@ -174,6 +176,35 @@ const useReservations = () => {
         document.body.removeChild(link);
     };
 
+
+
+
+
+
+
+    // ✅ suppression de l'utilisateur
+    const handleDeleteUser = async () => {
+        try {
+            const response = await fetch(`/user/delete`, {
+                method: "DELETE",
+                credentials: "include"
+            });
+
+            if (!response.ok) throw new Error("Échec de la suppression");
+
+            setUser(null); // déconnecte l’utilisateur
+            console.log("Utilisateur supprimé avec succès");
+
+            // ✅ Redirection vers ta page
+            window.location.href = "/LeFrontDeMer";
+        } catch (error) {
+            console.error("Erreur réseau :", error);
+        }
+    };
+
+
+
+
     // 🔄 Export des fonctions et états pour utilisation dans le composant
     return {
         reservations,
@@ -193,7 +224,8 @@ const useReservations = () => {
         reservationsSoir,
         handleStatusUpdate,
         handleDeleteResa,
-        handleDownload
+        handleDownload,
+        handleDeleteUser
     };
 };
 

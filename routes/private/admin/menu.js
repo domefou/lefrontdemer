@@ -2,8 +2,7 @@ const express = require('express');
 const { checkJWT } = require('../../../middleware/secure'); // ✅ destructuration
 const Menu = require('../../../models/menu');
 
-const { deleteMenu } = require('../../../services/menuDuJour');
-const { updateMenu } = require('../../../services/menuDuJour');
+const { deleteMenu, addMenu, updateMenu } = require('../../../services/menuDuJour');
 
 const router = express.Router();
 
@@ -15,7 +14,7 @@ router.get('/', checkJWT, async (req, res) => {
     res.json(menu);
 });
 
-
+router.post('/', checkJWT, addMenu);
 
 router.put('/:id_menu', checkJWT, updateMenu);
 

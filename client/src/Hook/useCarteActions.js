@@ -55,7 +55,7 @@ export const handleDeleteClick = (setFormAction, setSelectedArticles) => async (
 
 
 
-// hook pour gérer le formulaire de menu avec pre remplissage des données du menu du jour
+// hook pour gérer le formulaire de menu avec pre remplissage des données de l'article
 // modification de l'url en /admin/carte si le formulaire est un POST
 
 export const handleArticle = async ({

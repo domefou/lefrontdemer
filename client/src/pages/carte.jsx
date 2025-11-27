@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
@@ -106,6 +107,14 @@ const Carte = () => {
 
 
             <Layout>
+                <Helmet>
+                    <title>Notre carte & Menu du jour - Le Front de Mer</title>
+                    <meta
+                        name="description"
+                        content="Découvrez la carte du restaurant Le Front de Mer aux Sables d’Olonne : poissons grillés, spécialités iodées et menu du jour préparé avec des produits frais."
+                    />
+                </Helmet>
+
                 <div className="container_gen">
 
                     <div className="navButton">

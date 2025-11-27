@@ -1,5 +1,33 @@
 const Menu = require('../models/menu');
 
+const addMenu = async (req, res) => {
+    const { nom, entree, plat, dessert, boisson, prix } = req.body;
+
+    const menuData = {
+        nom,
+        entree,
+        plat,
+        dessert,
+        boisson,
+        prix
+    };
+
+
+
+    try {
+        const created = await Menu.create(menuData);
+
+        if (created) {
+            res.json({ message: 'Menu ajouté avec succès' });
+        } else {
+            res.status(404).json({ message: 'Menu non ajouté' });
+        }
+    } catch (err) {
+        console.error("Erreur serveur :", err);
+        res.status(500).json({ message: 'Erreur serveur lors de l/ajout du menu' });
+    }
+};
+
 
 
 const updateMenu = async (req, res) => {
@@ -43,6 +71,7 @@ const deleteMenu = async (req, res) => {
 
 
 module.exports = {
+    addMenu: addMenu,
     updateMenu: updateMenu,
     deleteMenu: deleteMenu
 };

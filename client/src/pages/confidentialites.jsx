@@ -1,6 +1,4 @@
-//import { useEffect, useState } from "react";
-//import axios from "axios";
-
+import { Helmet } from "react-helmet-async";
 import '../styles/desktop/confidentialites.scss';
 import '../styles/mobile/confidentialites.scss';
 
@@ -26,6 +24,15 @@ const Confidentialites = () => {
     */
     return (
         <Layout>
+            <Helmet>
+                <title>Confidentialité - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Consultez notre politique de confidentialité : Le Front de Mer protège vos données personnelles et respecte votre vie privée."
+                />
+            </Helmet>
+
+
             <div className="container_gen">
                 <h2 className="title">Politique de confidentialitées</h2>
 
@@ -172,7 +179,6 @@ const Confidentialites = () => {
                 </div>
 
             </div>
-
         </Layout>
 
 

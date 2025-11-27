@@ -103,7 +103,7 @@
             .User_etat-resa,
             .User_btn {
                 display: block;
-                width: 16%;
+                width: 20%;
                 height: fit-content;
                 box-sizing: border-box;
                 @include text_style_center();
@@ -308,6 +308,44 @@
                         @include bg_4();
                         @include c_white();
                     }
+                }
+            }
+        }
+
+
+
+        .deleteUser {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            min-height: 70px;
+            height: fit-content;
+            margin-top: 70px;
+
+            p {
+                display: block;
+                width: 100%;
+                @include c_3();
+                @include text_italic($font-size: 0.9rem, $font-weight: 400);
+                @include text_style_center();
+                margin-bottom: 25px;
+
+            }
+
+            button {
+                margin-top: 25px;
+                padding: 10px 20px;
+                @include border_light_grey($radius: 8px);
+                @include btn_style();
+                @include c_white();
+                @include btn_red();
+                @include text_normal($font-size: 1rem);
+
+                &:hover {
+                    @include btn_red($btn_red: #860000);
+                    @include border_dark_grey($radius: 8px);
                 }
             }
         }

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -70,6 +71,16 @@ const SignUp = () => {
 
     return (
         <Layout>
+            <Helmet>
+                <title>Inscription - Le Front de Mer</title>
+                <meta
+                    name="description"
+                    content="Créez votre compte sur le site du restaurant Le Front de Mer aux Sables d’Olonne pour réserver en ligne et gérer vos informations personnelles."
+                />
+            </Helmet>
+
+
+
             {/* Bloc de présentation marketing */}
             <div className="container_paragraphe">
                 <div className="paragraphe">
