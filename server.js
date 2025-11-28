@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
+//const path = require('path');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
@@ -22,7 +22,17 @@ app.use(express.urlencoded({ extended: true }));
 app.set('trust proxy', 1);
 
 // Sécurité & performance
-app.use(cors());
+const allowedOrigins = [
+  "https://lefrontdemerfrontend.onrender.com",
+  "http://localhost:3000"
+];
+
+const corsOptions = {
+  origin: allowedOrigins,
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 app.use(express.json());
