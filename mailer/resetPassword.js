@@ -3,9 +3,10 @@ dotenv.config();
 
 const nodemailer = require('nodemailer');
 const tokenTemplate = require('./template/resetPasswordTemplate');
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const sendResetMail = async ({ nom, mail, token }) => {
-    const resetLink = `${process.env.FRONTEND_URL}/reset/confirm/${token}/${encodeURIComponent(mail)}`;
+    const resetLink = `${API_URL}/${process.env.FRONTEND_URL}/reset/confirm/${token}/${encodeURIComponent(mail)}`;
 
 
     const transporter = nodemailer.createTransport({

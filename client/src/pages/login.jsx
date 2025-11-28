@@ -69,9 +69,9 @@ const Login = () => {
 
                 // ✅ Redirection selon le rôle de l'utilisateur
                 if (data.user.role === 'admin') {
-                    navigate('/admin/LeFrontDeMer');
+                    navigate(`${API_URL}/admin/LeFrontDeMer`);
                 } else {
-                    navigate('/user/LeFrontDeMer');
+                    navigate(`${API_URL}/user/LeFrontDeMer`);
                 }
             } else {
                 // Affiche le message d'erreur renvoyé par le backend
@@ -148,7 +148,7 @@ const Login = () => {
 
 
                 {/* Lien vers la page de réinitialisation du mot de passe */}
-                <a href="/Reset/request" className="link_lost_password">Mot de passe oublié ?</a>
+                <a href='/Reset/request' className="link_lost_password">Mot de passe oublié ?</a>
             </form>
         </Layout>
     );

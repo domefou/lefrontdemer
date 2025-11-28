@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-//const path = require('path');
+/* a commenté pour le deploiement path */
+/*
+const path = require('path');
+*/
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
@@ -122,7 +125,6 @@ app.use(express.static(path.join(__dirname, "client/build")));
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
 });
-
 */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,3 +142,24 @@ app.listen(PORT, () => {
   console.log(`🚀 Serveur démarré sur le port ${PORT}`);
 });
 
+
+
+
+
+
+/*
+NODE_ENV=production
+PORT=5000
+SECRET_KEY=GTGh6rdP54GT76
+cloud_NAME=dtai1ysvg
+cloud_KEY=673798897593755
+cloud_SECRET=3vQnZPHmhedb4AQ_F6J1jExJUkU
+MAILER_APP=ukrzvwostitunkby
+FRONTEND_URL=https://lefrontdemerfrontend.onrender.com
+DB_HOST=interchange.proxy.rlwy.net
+DB_PORT=16992
+DB_USER=root
+DB_PASSWORD=ChjsEpodHEXvFORMisGSZeSSgtLbWrmQ
+DB_NAME=railway
+REACT_APP_API_URL=https://lefrontdemerbackend.onrender.com
+*/
