@@ -1,8 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 
-const dotenv = require('dotenv');
-dotenv.config();
 
 const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
