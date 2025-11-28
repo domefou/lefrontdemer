@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 
 import Layout from "../components/layout";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import '../styles/desktop/signup.scss';
 import '../styles/mobile/signup.scss';
 
@@ -42,7 +47,7 @@ const SignUp = () => {
         }
 
         try {
-            const response = await fetch('/signup', {
+            const response = await fetch(`${API_URL}/signup`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
@@ -52,7 +57,7 @@ const SignUp = () => {
 
             if (response.ok) {
                 setErrorMessage(""); // Nettoie les erreurs précédentes
-                navigate('/SeConnecter');
+                navigate(`${API_URL}/SeConnecter`);
             } else {
                 setErrorMessage(data.message || "Erreur lors de l'inscription.");
             }

@@ -4,6 +4,10 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 import Layout from "../components/layout";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 import '../styles/desktop/monCompte.scss';
 import '../styles/mobile/monCompte.scss';
@@ -48,7 +52,7 @@ const MonCompte = () => {
         if (!user) return;
 
         // Détermine l'URL de l'API à appeler selon le rôle de l'utilisateur
-        const endpoint = user.role === "admin" ? "/admin/compte" : "/user/compte";
+        const endpoint = user.role === "admin" ? `${API_URL}/admin/compte` : `${API_URL}/user/compte`;
 
         // Envoie une requête GET à l'API pour récupérer les réservations
         axios.get(endpoint, { withCredentials: true }) // 'withCredentials' permet d'envoyer les cookies

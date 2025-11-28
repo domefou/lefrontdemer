@@ -2,6 +2,10 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 import '../styles/desktop/navBar.scss';
 import '../styles/mobile/navBar.scss';
@@ -14,7 +18,7 @@ const LogoutButton = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('/logout', {
+            const response = await fetch(`${API_URL}/logout`, {
                 method: 'GET',
                 credentials: 'include',
             });
@@ -23,7 +27,7 @@ const LogoutButton = () => {
             if (response.ok) {
                 alert(data.message);
                 setUser(null); // ✅ vider le contexte
-                navigate('/LeFrontDeMer'); // ✅ redirection
+                navigate(`${API_URL}/LeFrontDeMer`); // ✅ redirection
             } else {
                 alert('Erreur lors de la déconnexion');
             }

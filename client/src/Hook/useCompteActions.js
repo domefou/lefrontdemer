@@ -1,7 +1,10 @@
 import { useState, useContext, useMemo } from "react";
 import { AuthContext } from "../context/AuthContext";
 
+const dotenv = require('dotenv');
+dotenv.config();
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 // Hook personnalisé pour gérer toutes les réservations côté admin
 const useReservations = () => {
@@ -104,7 +107,7 @@ const useReservations = () => {
     const handleStatusUpdate = async (reservation, newStatus) => {
         const { id_reservation, date, heure, nbr_couvert } = reservation;
         try {
-            const response = await fetch(`/admin/compte/${id_reservation}`, {
+            const response = await fetch(`${API_URL}/admin/compte/${id_reservation}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ etat: newStatus, date, heure, nbr_couvert })
@@ -133,7 +136,7 @@ const useReservations = () => {
     // ❌ Suppression d'une réservation par l'utilisateur
     const handleDeleteResa = async (id_reservation) => {
         try {
-            const response = await fetch(`/user/compte/${id_reservation}`, {
+            const response = await fetch(`${API_URL}/user/compte/${id_reservation}`, {
                 method: "DELETE",
                 headers: { Authorization: `Bearer ${user}` }
             });
@@ -185,7 +188,7 @@ const useReservations = () => {
     // ✅ suppression de l'utilisateur
     const handleDeleteUser = async () => {
         try {
-            const response = await fetch(`/user/delete`, {
+            const response = await fetch(`${API_URL}/user/delete`, {
                 method: "DELETE",
                 credentials: "include"
             });
@@ -196,7 +199,7 @@ const useReservations = () => {
             console.log("Utilisateur supprimé avec succès");
 
             // ✅ Redirection vers ta page
-            window.location.href = "/LeFrontDeMer";
+            window.location.href = `${API_URL}/LeFrontDeMer`;
         } catch (error) {
             console.error("Erreur réseau :", error);
         }

@@ -3,6 +3,11 @@ import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import '../styles/desktop/newPassword.scss';
 import '../styles/mobile/newPassword.scss';
 
@@ -24,7 +29,7 @@ const ResetConfirm = () => {
         }
 
         try {
-            const response = await fetch(`/reset/confirm/${token}/${encodeURIComponent(mail)}`, {
+            const response = await fetch(`${API_URL}/reset/confirm/${token}/${encodeURIComponent(mail)}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token, newPassword: password })
@@ -34,7 +39,7 @@ const ResetConfirm = () => {
 
             if (response.ok) {
                 setSuccessMessage("Mot de passe mis à jour avec succès !");
-                setTimeout(() => navigate("/SeConnecter"), 3000); // redirection après 3s
+                setTimeout(() => navigate(`${API_URL}/SeConnecter`), 3000); // redirection après 3s
             } else {
                 setErrorMessage(data.message || "Erreur lors de la mise à jour.");
             }

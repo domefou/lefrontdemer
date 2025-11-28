@@ -1,6 +1,11 @@
 import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import "../styles/desktop/contact.scss";
 import "../styles/mobile/contact.scss";
 
@@ -8,8 +13,6 @@ import Layout from "../components/layout";
 
 import LogoNav from "../assets/image/logo/logo_resto.svg";
 
-
-//import axios from "axios";
 
 const Contact = () => {
 
@@ -60,7 +63,7 @@ const Contact = () => {
 
         try {
             // Envoi des identifiants au backend
-            const response = await fetch('/contact', {
+            const response = await fetch(`${API_URL}/contact`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

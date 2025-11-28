@@ -3,6 +3,11 @@ import { useState, useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Layout from "../components/layout";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import '../styles/desktop/reservation.scss';
 import '../styles/mobile/reservation.scss';
 
@@ -96,7 +101,7 @@ const Reservation = () => {
 
         try {
             // Envoi de la requête POST vers ton backend
-            const response = await fetch("/reservation", {
+            const response = await fetch(`${API_URL}/reservation`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData)

@@ -1,5 +1,7 @@
+const dotenv = require('dotenv');
+dotenv.config();
 
-
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 /* *****************  Formulaire admin menu du jour **************************/
 
 
@@ -33,7 +35,7 @@ export const handleDeleteClick = (setFormAction, setSelectedArticles) => async (
     setSelectedArticles(null); // utile si tu veux afficher le formulaire ou confirmer
 
     try {
-        const response = await fetch(`/admin/carte/${article.id_article}`, {
+        const response = await fetch(`${API_URL}/admin/carte/${article.id_article}`, {
             method: "DELETE",
             credentials: 'include'
         });
@@ -79,8 +81,8 @@ export const handleArticle = async ({
     // ✅ Construire l'URL dynamiquement
     const url =
         formAction === "POST"
-            ? "/admin/carte"
-            : `/admin/carte/${selectedArticles?.id_article}`;
+            ? `${API_URL}/admin/carte`
+            : `${API_URL}/admin/carte/${selectedArticles?.id_article}`;
 
     try {
         const response = await fetch(url, {

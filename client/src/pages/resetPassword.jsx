@@ -3,6 +3,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import '../styles/desktop/resetPassword.scss';
 import '../styles/mobile/resetPassword.scss';
 
@@ -18,7 +23,7 @@ const ResetPassword = () => {
 
         try {
             // Envoi des identifiants au backend
-            const response = await fetch('/reset/request', {
+            const response = await fetch(`${API_URL}/reset/request`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData)
@@ -30,7 +35,7 @@ const ResetPassword = () => {
                 // Réinitialise le formulaire
                 setFormData({ mail: "", nom: "" });
 
-                navigate('/LeFrontDeMer');
+                navigate(`${API_URL}/LeFrontDeMer`);
 
             } else {
                 // Affiche le message d'erreur renvoyé par le backend

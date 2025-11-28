@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import axios from "axios";
 
 import '../styles/desktop/carte.scss';
@@ -58,7 +63,7 @@ const Carte = () => {
 
 
     useEffect(() => {
-        axios.get('/carte')
+        axios.get(`${API_URL}/carte`, { withCredentials: true })
             .then(response => {
                 setArticles(response.data.articles); // ✅ tableau d'articles
                 setMenus(response.data.menu);

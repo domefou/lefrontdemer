@@ -1,4 +1,9 @@
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 
 /* *****************  Formulaire admin menu du jour **************************/
 
@@ -35,7 +40,7 @@ export const handleDeleteClick = (setFormAction, setSelectedMenu) => async (menu
     setSelectedMenu(menu);
 
     try {
-        const response = await fetch(`/admin/menu/${menu.id_menu}`, {
+        const response = await fetch(`${API_URL}/admin/menu/${menu.id_menu}`, {
             method: "DELETE",
             credentials: 'include'
         });
@@ -78,8 +83,8 @@ export const handleMenu = async ({
     try {
         // Choisir l’URL selon l’action
         const url = formAction === "POST"
-            ? "/admin/menu"              // création
-            : `/admin/menu/${selectedMenu?.id_menu}`; // modification
+            ? `${API_URL}/admin/menu`              // création
+            : `${API_URL}/admin/menu/${selectedMenu?.id_menu}`; // modification
 
         const response = await fetch(url, {
             method: formAction,

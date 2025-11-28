@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; // ✅ Import du contexte d'authentification
 import Layout from "../components/layout";
 
+const dotenv = require('dotenv');
+dotenv.config();
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 import '../styles/desktop/login.scss';
 import '../styles/mobile/login.scss';
 
@@ -48,7 +53,7 @@ const Login = () => {
 
         try {
             // Envoi des identifiants au backend
-            const response = await fetch('/login', {
+            const response = await fetch(`${API_URL}/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),

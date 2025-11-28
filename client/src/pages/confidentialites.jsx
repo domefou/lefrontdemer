@@ -9,19 +9,7 @@ import img_banner from "../assets/image/heart-lock-4921885_1920.jpg";
 
 
 const Confidentialites = () => {
-    /*
-        const [users, setUsers] = useState([""]);
-    
-        useEffect(() => {
-            axios.get('/confidentialites')
-                .then(response => {
-                    setUsers(response.data);
-                })
-                .catch(error => {
-                    console.error("Erreur lors du chargement des utilisateurs :", error);
-                });
-        }, []);
-    */
+
     return (
         <Layout>
             <Helmet>
