@@ -103,12 +103,20 @@ app.use('/contact', contactRoutes);
 app.use('/statusContact', contactStatusRoutes);
 
 
+//////////// Cette partie doit etre commenter pour le déploiement  utilisation uniquement en local ////////////
 
 // Fichiers statiques React
+
+/*
 app.use(express.static(path.join(__dirname, "client/build")));
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, 'client/build', 'index.html'));
 });
+
+*/
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 // Middleware d’erreur
 app.use((err, req, res, next) => {
