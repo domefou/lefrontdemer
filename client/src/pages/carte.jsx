@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 
 import axios from "axios";
 
@@ -33,6 +33,7 @@ import add_png from "../assets/image/icons/add.png";
 import close_png from "../assets/image/icons/close.png";
 import arrow from "../assets/image/icons/right-arrow.png";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const Carte = () => {
     const { user } = useContext(AuthContext);

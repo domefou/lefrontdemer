@@ -4,15 +4,13 @@ import { AuthContext } from "../context/AuthContext";
 import Layout from "../components/layout";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/reservation.scss';
 import '../styles/mobile/reservation.scss';
 
 import LogoNav from "../assets/image/logo/logo_resto.svg"; // ✅ Importation de l'image du logo
 import Agenda from "../assets/image/agenda.jpg";
 
-
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const Reservation = () => {
     // Récupère l'utilisateur connecté depuis le contexte d'authentification

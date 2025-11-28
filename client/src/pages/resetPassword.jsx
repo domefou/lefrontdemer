@@ -4,10 +4,10 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/resetPassword.scss';
 import '../styles/mobile/resetPassword.scss';
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const ResetPassword = () => {
 

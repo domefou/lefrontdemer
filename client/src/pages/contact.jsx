@@ -2,8 +2,6 @@ import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import "../styles/desktop/contact.scss";
 import "../styles/mobile/contact.scss";
 
@@ -11,6 +9,7 @@ import Layout from "../components/layout";
 
 import LogoNav from "../assets/image/logo/logo_resto.svg";
 
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const Contact = () => {
 

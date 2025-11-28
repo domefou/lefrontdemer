@@ -5,10 +5,10 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/signup.scss';
 import '../styles/mobile/signup.scss';
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const SignUp = () => {
     const navigate = useNavigate();

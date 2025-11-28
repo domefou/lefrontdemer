@@ -4,10 +4,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import Layout from "../components/layout";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/newPassword.scss';
 import '../styles/mobile/newPassword.scss';
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const ResetConfirm = () => {
     const { token, mail } = useParams(); // récupère le token depuis l'URL

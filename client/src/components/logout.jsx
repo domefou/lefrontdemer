@@ -3,10 +3,10 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/navBar.scss';
 import '../styles/mobile/navBar.scss';
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const LogoutButton = () => {
     const { setUser } = useContext(AuthContext);

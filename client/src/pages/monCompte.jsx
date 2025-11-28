@@ -5,8 +5,6 @@ import axios from "axios";
 import Layout from "../components/layout";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/monCompte.scss';
 import '../styles/mobile/monCompte.scss';
 
@@ -15,6 +13,8 @@ import download from "../assets/image/icons/download.png";
 
 import useReservations from "../Hook/useCompteActions";
 
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const MonCompte = () => {
     const { user } = useContext(AuthContext);

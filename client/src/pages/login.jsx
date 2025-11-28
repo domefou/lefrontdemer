@@ -5,10 +5,10 @@ import { AuthContext } from "../context/AuthContext"; // ✅ Import du contexte 
 import Layout from "../components/layout";
 
 
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
-
 import '../styles/desktop/login.scss';
 import '../styles/mobile/login.scss';
+
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 const Login = () => {
     const navigate = useNavigate();

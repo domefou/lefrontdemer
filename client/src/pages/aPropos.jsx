@@ -1,7 +1,6 @@
 import { Helmet } from "react-helmet-async";
 import banerPropos from "../assets/image/banner002.png";
 import Layout from "../components/layout";
-
 import "../styles/desktop/aPropos.scss"
 import "../styles/mobile/aPropos.scss"
 
