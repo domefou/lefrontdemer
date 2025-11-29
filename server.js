@@ -7,6 +7,7 @@ const path = require('path');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
+const session = require("express-session");
 
 
 
@@ -20,6 +21,18 @@ require('./startup/sequelizeInit'); // initialise Sequelize + synchronisation
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
+
+
+// Configuration de la session
+app.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    secure: true,       // Render est en HTTPS
+    sameSite: "none",   // indispensable pour cross-site
+  }
+}));
 
 
 app.set('trust proxy', 1);
@@ -149,24 +162,3 @@ app.listen(PORT, () => {
   console.log(`🚀 Serveur démarré sur le port ${PORT}`);
 });
 
-
-
-
-
-
-/*
-NODE_ENV=production
-PORT=5000
-SECRET_KEY=GTGh6rdP54GT76
-cloud_NAME=dtai1ysvg
-cloud_KEY=673798897593755
-cloud_SECRET=3vQnZPHmhedb4AQ_F6J1jExJUkU
-MAILER_APP=ukrzvwostitunkby
-FRONTEND_URL=https://lefrontdemerfrontend.onrender.com
-DB_HOST=interchange.proxy.rlwy.net
-DB_PORT=16992
-DB_USER=root
-DB_PASSWORD=ChjsEpodHEXvFORMisGSZeSSgtLbWrmQ
-DB_NAME=railway
-REACT_APP_API_URL=https://lefrontdemerbackend.onrender.com
-*/
