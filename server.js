@@ -36,6 +36,13 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+// ✅ Forcer l'encodage UTF-8 dans les réponses JSON
+app.use((req, res, next) => {
+  res.setHeader("Content-Type", "application/json; charset=utf-8");
+  next();
+});
+
 app.use(helmet());
 app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 app.use(express.json());
