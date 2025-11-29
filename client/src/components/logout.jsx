@@ -25,7 +25,7 @@ const LogoutButton = () => {
             if (response.ok) {
                 alert(data.message);
                 setUser(null); // ✅ vider le contexte
-                navigate(`${API_URL}/LeFrontDeMer`); // ✅ redirection
+                navigate(`/LeFrontDeMer`); // ✅ redirection
             } else {
                 alert('Erreur lors de la déconnexion');
             }
