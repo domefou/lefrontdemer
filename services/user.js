@@ -38,9 +38,9 @@ const authenticate = async (req, res) => {
 
         res.cookie('token', token, {
             httpOnly: true,
-            secure: NODE_ENV === 'production',   // ! Ne pas oublier de repasser en production lors du deploiement
-            sameSite: 'Lax',     // ou 'Strict' si frontend et backend sont sur le même domaine
-            maxAge: 24 * 60 * 60 * 1000 // ✅ 24h en millisecondes
+            secure: NODE_ENV === 'production', // Render est en HTTPS
+            sameSite: 'None',                  // indispensable pour cross-site
+            maxAge: 24 * 60 * 60 * 1000        // 24h
         });
 
 

@@ -55,7 +55,7 @@ const SignUp = () => {
 
             if (response.ok) {
                 setErrorMessage(""); // Nettoie les erreurs précédentes
-                navigate(`${API_URL}/SeConnecter`);
+                navigate(`/SeConnecter`);
             } else {
                 setErrorMessage(data.message || "Erreur lors de l'inscription.");
             }

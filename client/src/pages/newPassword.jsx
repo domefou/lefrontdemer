@@ -37,7 +37,7 @@ const ResetConfirm = () => {
 
             if (response.ok) {
                 setSuccessMessage("Mot de passe mis à jour avec succès !");
-                setTimeout(() => navigate(`${API_URL}/SeConnecter`), 3000); // redirection après 3s
+                setTimeout(() => navigate(`/SeConnecter`), 3000); // redirection après 3s
             } else {
                 setErrorMessage(data.message || "Erreur lors de la mise à jour.");
             }

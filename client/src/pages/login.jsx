@@ -69,9 +69,9 @@ const Login = () => {
 
                 // ✅ Redirection selon le rôle de l'utilisateur
                 if (data.user.role === 'admin') {
-                    navigate(`${API_URL}/admin/LeFrontDeMer`);
+                    navigate(`/admin/LeFrontDeMer`);
                 } else {
-                    navigate(`${API_URL}/user/LeFrontDeMer`);
+                    navigate(`/user/LeFrontDeMer`);
                 }
             } else {
                 // Affiche le message d'erreur renvoyé par le backend

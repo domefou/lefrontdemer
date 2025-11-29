@@ -33,7 +33,7 @@ const ResetPassword = () => {
                 // Réinitialise le formulaire
                 setFormData({ mail: "", nom: "" });
 
-                navigate(`${API_URL}/LeFrontDeMer`);
+                navigate(`/LeFrontDeMer`);
 
             } else {
                 // Affiche le message d'erreur renvoyé par le backend
