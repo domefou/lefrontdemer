@@ -32,15 +32,16 @@ export const AuthProvider = ({ children }) => {
 
         if (!isPublicRoute) {
             fetch(`${API_URL}/auth/check`, { credentials: 'include' })
-                .then(res => {
-                    if (!res.ok) throw new Error('Aucun utilisateur connecté');
-                    return res.json();
-                })
+                .then(res => res.json())
                 .then(data => {
-                    if (data.user) setUser(data.user);
-                    else setUser(null);
+                    if (data.user) {
+                        setUser(data.user);
+                    } else {
+                        setUser(null);
+                    }
                 })
                 .catch(() => setUser(null));
+
         }
     }, [location.pathname]);
 
