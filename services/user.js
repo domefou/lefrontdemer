@@ -3,8 +3,6 @@ const User = require('../models/user');
 const bcrypt = require('bcryptjs');
 const { resetPassword } = require('../mailer/resetPassword');
 
-const { SECRET_KEY, NODE_ENV } = process.env;
-
 /**
  * Authentifie un utilisateur en fonction de son mail et de son mot de passe.
  */
@@ -32,18 +30,20 @@ const authenticate = async (req, res) => {
             return res.status(401).json({ message: "Mot de passe incorrect." });
         }
 
-        const token = jwt.sign({ userId: user.id_user, role: user.role }, SECRET_KEY, {
-            expiresIn: 24 * 60 * 60
-        });
+        // ✅ Utiliser process.env.SECRET_KEY
+        const token = jwt.sign(
+            { userId: user.id_user, role: user.role },
+            process.env.SECRET_KEY,
+            { expiresIn: 24 * 60 * 60 }
+        );
 
+        // ✅ Utiliser process.env.NODE_ENV
         res.cookie('token', token, {
             httpOnly: true,
-            secure: NODE_ENV === 'production', // Render est en HTTPS
-            sameSite: 'None',                  // indispensable pour cross-site
-            maxAge: 24 * 60 * 60 * 1000        // 24h
+            secure: process.env.NODE_ENV === 'production', // Render est en HTTPS
+            sameSite: 'None',                              // indispensable pour cross-site
+            maxAge: 24 * 60 * 60 * 1000                    // 24h
         });
-
-
 
         return res.status(200).json({
             message: "Connexion réussie",
@@ -53,12 +53,13 @@ const authenticate = async (req, res) => {
                 role: user.role,
                 nom: user.nom
             }
-        }); // ✅ renvoie l'utilisateur à la route
+        });
     } catch (error) {
         console.error("Erreur serveur :", error);
         return res.status(500).json({ message: "Erreur du serveur interne", erreur: error.message });
     }
 };
+
 
 
 
