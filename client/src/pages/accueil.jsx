@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 import Layout from "../components/layout";
 import '../styles/desktop/accueil.scss';
 import '../styles/mobile/accueil.scss';
@@ -58,7 +59,9 @@ const Accueil = () => {
                 </div>
 
                 <div className="container_btn_carte">
-                    <a className="link_carte" href="/Carte">Voir la carte</a>
+                    <Link className="link_carte" to="/Carte">
+                        Voir la carte
+                    </Link>
                 </div>
 
                 <div className="container_text_bar">
