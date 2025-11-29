@@ -30,7 +30,8 @@ const ResetConfirm = () => {
             const response = await fetch(`${API_URL}/reset/confirm/${token}/${encodeURIComponent(mail)}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ token, newPassword: password })
+                body: JSON.stringify({ token, newPassword: password }),
+                credentials: 'include' // ✅ indispensable pour les cookies de session
             });
 
             const data = await response.json();

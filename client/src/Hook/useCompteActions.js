@@ -108,7 +108,8 @@ const useReservations = () => {
             const response = await fetch(`${API_URL}/admin/compte/${id_reservation}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ etat: newStatus, date, heure, nbr_couvert })
+                body: JSON.stringify({ etat: newStatus, date, heure, nbr_couvert }),
+                credentials: 'include' // ✅ indispensable pour les cookies de session
             });
 
             if (response.ok) {
@@ -136,7 +137,8 @@ const useReservations = () => {
         try {
             const response = await fetch(`${API_URL}/user/compte/${id_reservation}`, {
                 method: "DELETE",
-                headers: { Authorization: `Bearer ${user}` }
+                headers: { Authorization: `Bearer ${user}` },
+                credentials: 'include' // ✅ indispensable pour les cookies de session
             });
 
             if (response.ok) {

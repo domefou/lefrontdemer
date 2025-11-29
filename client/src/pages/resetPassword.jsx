@@ -24,7 +24,8 @@ const ResetPassword = () => {
             const response = await fetch(`${API_URL}/reset/request`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: JSON.stringify(formData),
+                credentials: 'include' // ✅ indispensable pour les cookies de session
             });
 
             const data = await response.json();
