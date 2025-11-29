@@ -2,10 +2,10 @@
 const express = require('express');
 const router = express.Router();
 
-//const { checkJWT } = require('../../middleware/secure');
+const { checkJWT } = require('../../middleware/secure');
 
 
-router.get('/check', (req, res) => {
+router.get('/check', checkJWT, (req, res) => {
     const token = req.cookies?.token;
 
     if (!token) {
