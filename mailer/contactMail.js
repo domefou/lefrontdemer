@@ -8,21 +8,27 @@ const contactMail = async ({ nom, objet, mail, message }) => {
         service: 'gmail',
         auth: {
             user: 'lefrontdemer.NoReply@gmail.com',
-            pass: process.env.MAILER_APP
+            pass: process.env.MAILER_APP // ⚠️ doit être un App Password Gmail
         }
     });
 
     const mailOptions = {
-        from: `"${nom}" <${mail}>`, // expéditeur
-        to: 'lefrontdemer.NoReply@gmail.com', // destinataire
+        from: `"${nom}" <${mail}>`,
+        to: 'lefrontdemer.NoReply@gmail.com',
         replyTo: mail,
         subject: objet,
         text: message
     };
 
-
-    return transporter.sendMail(mailOptions);
+    return transporter.sendMail(mailOptions, (err, info) => {
+        if (err) {
+            console.error("Erreur NodeMailer :", err);
+        } else {
+            console.log("Mail envoyé :", info.response);
+        }
+    });
 };
+
 
 
 module.exports = { contactMail };
