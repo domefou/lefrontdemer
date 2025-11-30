@@ -164,14 +164,14 @@
 
     .navbar {
         @include reset();
-        @include z_index();
+        @include z_index($z_index: 50);
 
         .container-navbar {
             display: flex;
             justify-content: center;
             height: fit-content;
             width: 100%;
-            @include z_index();
+            @include z_index($z_index: 50);
 
             .onglet-container {
 
@@ -192,7 +192,7 @@
                     padding-right: 3%;
                     margin: 0 !important;
                     list-style: none;
-                    @include z_index();
+                    @include z_index($z_index: 50);
 
                     .nav-item {
                         @include onglet_barnav();
