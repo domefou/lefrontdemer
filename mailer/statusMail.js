@@ -10,13 +10,17 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
     const client = new brevo.TransactionalEmailsApi();
     client.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
 
+    // Normaliser la valeur reçue (minuscule + trim + accents uniformisés)
+    const etatNormalise = String(etat).toLowerCase().trim();
+
     let htmlContent;
 
-    if (etat === "acceptée") {
+    if (etatNormalise === "acceptée") {
         htmlContent = statusAcceptedTemplate({ nom, date, heure, nbr_couvert, etat });
-    } else if (etat === "refusée") {
+    } else if (etatNormalise === "refusée") {
         htmlContent = statusRefusedTemplate({ nom, date, heure, nbr_couvert, etat });
     } else {
+        console.error("État inattendu reçu :", etat);
         throw new Error("État de réservation invalide");
     }
 
@@ -31,7 +35,7 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
 
     try {
         const result = await client.sendTransacEmail(email);
-        console.log("Mail de statut envoyé via API Brevo :", result.messageId || result);
+        console.log("Mail de statut envoyé via API Brevo :", result.body?.messageId || result);
         return result;
     } catch (err) {
         console.error("Erreur envoi statut via API Brevo :", err);
@@ -40,6 +44,7 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
 };
 
 module.exports = { statusMail };
+
 
 
 
