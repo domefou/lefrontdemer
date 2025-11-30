@@ -1,40 +1,34 @@
-const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
 
-const contactMail = async ({ nom, objet, mail, message }) => {
-    const transporter = nodemailer.createTransport({
-        host: "smtp-relay.brevo.com",
-        port: 587,
-        secure: false,
-        auth: {
-            user: process.env.BREVO_USER,
-            pass: process.env.BREVO_API_KEY
-        },
-        tls: { rejectUnauthorized: false },
-        connectionTimeout: 10000
-    });
+const brevo = require('@getbrevo/brevo');
 
-    const mailOptions = {
-        from: process.env.BREVO_USER,       // expéditeur validé
-        to: process.env.BREVO_USER,         // destinataire (toi)
-        replyTo: `"${nom}" <${mail}>`,      // utilisateur du formulaire
+const contactMail = async ({ nom, objet, mail, message }) => {
+    // Initialisation du client Brevo
+    const client = new brevo.TransactionalEmailsApi();
+    client.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+
+    // Définition du mail
+    const email = {
+        sender: { email: process.env.BREVO_USER },   // expéditeur validé dans Brevo
+        to: [{ email: process.env.BREVO_USER }],     // destinataire (toi-même)
+        replyTo: { email: mail },                    // utilisateur du formulaire
         subject: objet,
-        text: message
+        textContent: message
     };
 
     try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log("Mail envoyé via Brevo :", info.messageId);
-        return info;
+        const result = await client.sendTransacEmail(email);
+        console.log("Mail envoyé via API Brevo :", result.messageId || result);
+        return result;
     } catch (err) {
-        console.error("Erreur NodeMailer/Brevo :", err);
+        console.error("Erreur API Brevo :", err);
         throw err;
     }
 };
 
-
 module.exports = { contactMail };
+
 
 
 /* Alternative transporter gmail incompatible sur Render.com

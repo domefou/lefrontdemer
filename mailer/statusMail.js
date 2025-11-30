@@ -1,46 +1,46 @@
-const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 dotenv.config();
 
+const brevo = require('@getbrevo/brevo');
 const statusAcceptedTemplate = require('./template/statusAcceptedTemplate');
 const statusRefusedTemplate = require('./template/statusRefusedTemplate');
 
 const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
-    // Transporteur Brevo
-    const transporter = nodemailer.createTransport({
-        host: "smtp-relay.brevo.com",
-        port: 587,
-        secure: false, // STARTTLS
-        auth: {
-            user: process.env.BREVO_USER,     // ton adresse validée dans Brevo
-            pass: process.env.BREVO_API_KEY   // ta clé API générée dans Brevo
-        }
-    });
+    // Initialisation du client Brevo
+    const client = new brevo.TransactionalEmailsApi();
+    client.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+
+    let htmlContent;
 
     if (etat === "acceptée") {
-        const mailAccepted = {
-            from: process.env.BREVO_USER,     // expéditeur (ton adresse validée)
-            to: mail,                         // destinataire (client)
-            replyTo: process.env.BREVO_USER,
-            subject: 'Mise à jour de votre réservation',
-            html: statusAcceptedTemplate({ nom, date, heure, nbr_couvert, etat })
-        };
-        return transporter.sendMail(mailAccepted);
+        htmlContent = statusAcceptedTemplate({ nom, date, heure, nbr_couvert, etat });
+    } else if (etat === "refusée") {
+        htmlContent = statusRefusedTemplate({ nom, date, heure, nbr_couvert, etat });
+    } else {
+        throw new Error("État de réservation invalide");
     }
 
-    if (etat === "refusée") {
-        const mailRefused = {
-            from: process.env.BREVO_USER,
-            to: mail,
-            replyTo: process.env.BREVO_USER,
-            subject: 'Mise à jour de votre réservation',
-            html: statusRefusedTemplate({ nom, date, heure, nbr_couvert, etat })
-        };
-        return transporter.sendMail(mailRefused);
+    // Définition du mail
+    const email = {
+        sender: { email: process.env.BREVO_USER },   // expéditeur validé dans Brevo
+        to: [{ email: mail }],                       // destinataire (client)
+        replyTo: { email: process.env.BREVO_USER },
+        subject: 'Mise à jour de votre réservation',
+        htmlContent
+    };
+
+    try {
+        const result = await client.sendTransacEmail(email);
+        console.log("Mail de statut envoyé via API Brevo :", result.messageId || result);
+        return result;
+    } catch (err) {
+        console.error("Erreur envoi statut via API Brevo :", err);
+        throw err;
     }
 };
 
 module.exports = { statusMail };
+
 
 
 /*
