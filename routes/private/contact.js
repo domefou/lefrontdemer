@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-//const { checkJWT } = require('../../middleware/secure');
+const { checkJWT } = require('../../middleware/secure');
 const { contactMail } = require('../../mailer/contactMail.js');
 
 
-router.post('/', async (req, res) => {
+router.post('/', checkJWT, async (req, res) => {
     const { nom, objet, mail, message } = req.body;
 
     try {

@@ -12,14 +12,8 @@ const router = express.Router();
 
 
 router.get('/', checkJWT, OneReservation);
-/*
-
-router.post('/', checkJWT, addNewReservation);
 
 
-router.put('/:id_article', checkJWT, updateReservation);
-
-*/
 
 router.delete('/:id_reservation', checkJWT, deleteReservation);
 

@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const { statusMail } = require('../../mailer/statusMail');
 const { AllReservation } = require('../../services/reservation');
+const { checkJWT } = require('../../middleware/secure');
 
-router.put('/:id_reservation', async (req, res) => {
+router.put('/:id_reservation', checkJWT, async (req, res) => {
     const { etat, date, heure, nbr_couvert } = req.body;
     const { id_reservation } = req.params;
 
