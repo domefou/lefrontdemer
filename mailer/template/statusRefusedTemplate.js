@@ -27,7 +27,9 @@ module.exports = ({ nom, date, heure, nbr_couvert, etat }) => `
     </li>
     <li style="margin-top: 10px;">
       <strong style="color:#FFD700;">Message :</strong><br/>
-      Votre demande a bien été acceptée.<br/>
+      Nous sommes désolé votre demande n'a pas pu être acceptée a la date demandé,<br/>
+      veuillez nous en éxcuser, nous vous invitons à nous recontacter pour<br/>
+      convenir d'une autre date.<br/>
       Nous serons ravis de vous accueillir dans notre établissement,<br/>
       et de vous faire vivre une agréable expérience.
     </li>
