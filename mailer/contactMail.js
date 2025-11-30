@@ -3,22 +3,22 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const contactMail = async ({ nom, objet, mail, message }) => {
-    // Configuration du transporteur avec Brevo
     const transporter = nodemailer.createTransport({
         host: "smtp-relay.brevo.com",
         port: 587,
-        secure: false, // STARTTLS
+        secure: false,
         auth: {
-            user: process.env.BREVO_USER,     // ton email validé dans Brevo
-            pass: process.env.BREVO_API_KEY   // ta clé API générée dans Brevo
-        }
+            user: process.env.BREVO_USER,
+            pass: process.env.BREVO_API_KEY
+        },
+        tls: { rejectUnauthorized: false },
+        connectionTimeout: 10000
     });
 
-    // Options du mail
     const mailOptions = {
-        from: `"${nom}" <${mail}>`,        // expéditeur (utilisateur du formulaire)
-        to: process.env.BREVO_USER,        // destinataire (ton adresse validée)
-        replyTo: mail,
+        from: process.env.BREVO_USER,       // expéditeur validé
+        to: process.env.BREVO_USER,         // destinataire (toi)
+        replyTo: `"${nom}" <${mail}>`,      // utilisateur du formulaire
         subject: objet,
         text: message
     };
@@ -32,6 +32,7 @@ const contactMail = async ({ nom, objet, mail, message }) => {
         throw err;
     }
 };
+
 
 module.exports = { contactMail };
 
