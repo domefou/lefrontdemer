@@ -96,7 +96,7 @@
             @include border_light_grey();
 
 
-            .User_nom-resa,
+            //.User_nom-resa,
             .User_date-resa,
             .User_heure-resa,
             .User_couvert-resa,
@@ -108,7 +108,7 @@
                 box-sizing: border-box;
                 @include text_style_center();
                 @include text_normal($font-weight: 400,
-                    $font-size: 0.8rem, )
+                    $font-size: 1rem)
             }
 
             .User_resa_en-attente_head,
@@ -123,7 +123,7 @@
                 box-sizing: border-box;
                 margin-bottom: 15px;
                 @include c_goldenrod();
-                @include text_normal($font-weight: 400);
+                @include text_normal($font-weight: 400, $font-size: 1rem);
                 @include border_light_grey($radius: 0 0 8px 8px);
                 @include bg_black();
 
@@ -167,11 +167,10 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 16%;
+                    width: 20%;
                     height: fit-content;
                     box-sizing: border-box;
                     border: none;
-                    padding: 5px 10px;
                     @include text_style_center();
                     @include text_normal($font-weight: 400,
                         $font-size: 0.8rem);
@@ -235,7 +234,7 @@
                 box-sizing: border-box;
                 @include text_style_center();
                 @include text_normal($font-weight: 400,
-                    $font-size: 0.8rem, )
+                    $font-size: 1rem)
             }
 
 
@@ -250,7 +249,7 @@
                 box-sizing: border-box;
                 margin-bottom: 15px;
                 @include c_goldenrod();
-                @include text_normal($font-weight: 400);
+                @include text_normal($font-weight: 400, $font-size: 1rem);
                 @include border_light_grey($radius: 0 0 8px 8px);
                 @include bg_black();
 
