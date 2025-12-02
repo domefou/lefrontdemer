@@ -167,7 +167,7 @@ container_resa_passe
                             <h3>Réservations en cours</h3>
                             <div className="User_resa_en-cours_head">
                                 <p className="User_id-resa" hidden></p>
-                                <p className="User_nom-resa">Nom</p>
+                                {/**<p className="User_nom-resa">Nom</p>*/}
                                 <p className="User_date-resa">Date</p>
                                 <p className="User_heure-resa">Heure</p>
                                 {/** <p className="User_mail-resa">Mail : {res.User.mail}</p> */}
@@ -180,7 +180,7 @@ container_resa_passe
                                 reservationsFutures.map((res) => (
                                     <div key={res.id_reservation} className="User_resa_en-cours">
                                         <p className="User_id-resa" hidden>{res.id_reservation}</p>
-                                        <p className="User_nom-resa">{res.User.nom}</p>
+                                        {/**<p className="User_nom-resa">{res.User.nom}</p> */}
                                         <p className="User_date-resa">{res.date}</p>
                                         <p className="User_heure-resa">{res.heure}</p>
                                         {/** <p className="User_mail-resa">Mail : {res.User.mail}</p> */}
@@ -215,7 +215,7 @@ container_resa_passe
                             <h3>Réservations passees</h3>
                             <div className="User_resa_passe_head">
                                 <p className="User_id-resa" hidden></p>
-                                <p className="User_nom-resa">Nom</p>
+                                {/** <p className="User_nom-resa">Nom</p> */}
                                 <p className="User_date-resa">Date</p>
                                 <p className="User_heure-resa">Heure</p>
                                 {/** <p className="User_mail-resa">Mail : {res.User.mail}</p> */}
@@ -227,7 +227,7 @@ container_resa_passe
                             {reservationsPassees.slice(0, visibleCount).map((res) => (
                                 <div key={res.id_reservation} className="User_resa_passe">
                                     <p className="User_id-resa" hidden>{res.id_reservation}</p>
-                                    <p className="User_nom-resa">{res.User.nom}</p>
+                                    { /**<p className="User_nom-resa">{res.User.nom}</p> */}
                                     <p className="User_date-resa">{res.date}</p>
                                     <p className="User_heure-resa">{res.heure}</p>
                                     {/** <p className="User_mail-resa">Mail : {res.User.mail}</p> */}

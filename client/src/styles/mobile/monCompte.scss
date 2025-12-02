@@ -13,7 +13,7 @@
         flex-direction: column;
         gap: 25px;
         max-width: 1100px;
-        width: 98%;
+        width: 99%;
         align-items: center;
         margin: 25px auto 40px;
         position: relative;
@@ -97,7 +97,7 @@
             @include border_light_grey();
 
 
-            .User_nom-resa,
+            //.User_nom-resa,
             .User_date-resa,
             .User_heure-resa,
             .User_couvert-resa,
@@ -167,7 +167,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 16.2%;
+                    width: 25%;
                     height: fit-content;
                     box-sizing: border-box;
                     border: none;
@@ -218,13 +218,13 @@
 
 
 
-            .User_nom-resa,
+            //.User_nom-resa,
             .User_date-resa,
             .User_heure-resa,
             .User_couvert-resa,
             .User_etat-resa {
                 display: block;
-                width: 20%;
+                width: 25%;
                 height: fit-content;
                 box-sizing: border-box;
                 @include text_style_center();
@@ -342,7 +342,7 @@
         gap: 25px;
         align-items: center;
         margin: 25px auto 40px;
-        width: 98%;
+        width: 99%;
 
 
 
@@ -454,9 +454,12 @@
                 .Admin_action {
                     display: flex;
                     flex-direction: row;
+                    align-items: center;
                     justify-content: center;
                     align-items: center;
                     width: 20%;
+                    height: fit-content;
+                    min-height: 40px;
                     @include text_style_center();
                 }
             }
@@ -489,15 +492,17 @@
 
             .Admin_resa-actions {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 justify-content: space-around;
                 width: 20%;
+                height: fit-content;
+                min-height: 40px;
                 padding: 2px 0px;
 
                 button {
                     display: block;
-                    width: fit-content;
-                    min-width: 45%;
+                    width: 100%;
+                    height: 20px;
                     border: none;
                 }
 
