@@ -44,7 +44,9 @@
                 justify-content: center;
                 align-items: center;
                 width: fit-content;
+                min-width: 33%;
                 height: fit-content;
+                min-height: 40px;
                 @include btn_gold($background-color: #171717);
 
 
@@ -109,7 +111,7 @@
                 box-sizing: border-box;
                 @include text_style_center();
                 @include text_normal($font-weight: 400,
-                    $font-size: 0.8rem, )
+                    $font-size: 0.9rem, )
             }
 
             .User_resa_en-attente_head,
@@ -124,7 +126,7 @@
                 box-sizing: border-box;
                 margin-bottom: 15px;
                 @include c_goldenrod();
-                @include text_normal($font-weight: 400);
+                @include text_normal($font-weight: 400, $font-size: 0.9rem);
                 @include border_light_grey($radius: 0 0 8px 8px);
                 @include bg_black();
 
@@ -167,19 +169,19 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    width: 25%;
+                    width: 20%;
                     height: fit-content;
                     box-sizing: border-box;
                     border: none;
                     @include text_style_center();
                     @include text_normal($font-weight: 400,
-                        $font-size: 0.8rem);
+                        $font-size: 0.9rem);
 
 
                     .btn_annuler {
                         background-color: red;
                         color: black;
-                        width: fit-content;
+                        width: 100%;
                         height: fit-content;
                         margin: 0;
                         border-radius: 5px;
@@ -229,7 +231,7 @@
                 box-sizing: border-box;
                 @include text_style_center();
                 @include text_normal($font-weight: 400,
-                    $font-size: 0.8rem, )
+                    $font-size: 0.9rem, )
             }
 
 
@@ -243,7 +245,7 @@
                 box-sizing: border-box;
                 margin-bottom: 15px;
                 @include c_goldenrod();
-                @include text_normal($font-weight: 400);
+                @include text_normal($font-weight: 400, $font-size: 0.9rem);
                 @include border_light_grey($radius: 0 0 8px 8px);
                 @include bg_black();
 
@@ -335,6 +337,10 @@
         }
     }
 
+
+
+
+    ///////////////////      CONTAINER ADMIN     ///////////////////////////////////
 
     .Admin_container {
         display: flex;
