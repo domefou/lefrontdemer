@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# 🍽️ Le Front de Mer - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend du projet **Restaurant Le Front de Mer**, développé avec **React** et **Bootstrap**.  
+Ce projet permet aux utilisateurs de consulter la carte, réserver une table, gérer leur compte et interagir avec l’équipe du restaurant via une interface moderne et responsive.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Technologies utilisées
 
-### `npm start`
+- [React 18](https://react.dev/) – bibliothèque principale
+- [React Router DOM](https://reactrouter.com/) – gestion des routes
+- [Bootstrap 5](https://getbootstrap.com/) & [React-Bootstrap](https://react-bootstrap.github.io/) – design et composants UI
+- [Axios](https://axios-http.com/) – requêtes HTTP vers l’API backend
+- [React Helmet Async](https://github.com/staylor/react-helmet-async) – gestion des balises `<head>` (SEO)
+- [Sass](https://sass-lang.com/) – préprocesseur CSS
+- Outils de tests : `@testing-library/react`, `@testing-library/jest-dom`, `@testing-library/user-event`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📦 Installation
 
-### `npm test`
+Clone le projet et installe les dépendances :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+git clone https://github.com/tonrepo/lefrontdemer-frontend.git
+cd lefrontdemer-frontend
+npm install
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🛠️ Scripts disponibles
+Dans le répertoire du projet, tu peux exécuter :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+npm start
+Lance l’application en mode développement. 👉 Accessible sur http://localhost:3000.
 
-### `npm run eject`
+npm run build
+Construit l’application pour la production dans le dossier build. Le build est minifié et optimisé pour de meilleures performances.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+npm test
+Lance les tests en mode interactif.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+npm run eject
+⚠️ Opération irréversible. Copie toute la configuration (Webpack, Babel, ESLint) dans ton projet.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🔗 Proxy vers le backend
+Le frontend est configuré pour communiquer avec le backend via un proxy :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+json
+"proxy": "http://localhost:5000"
+En production, l’API est déployée sur : https://lefrontdemerbackend.onrender.com
 
-## Learn More
+🌐 Déploiement
+Le frontend est déployé sur Render : 👉 https://lefrontdemerfrontend.onrender.com
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Pour déployer :
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Construis le projet avec npm run build.
 
-### Code Splitting
+Configure Render pour servir les fichiers statiques du dossier build.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+🔒 Sécurité & sessions
+Les requêtes sont protégées par CORS (origines autorisées : localhost:3000 et Render).
 
-### Analyzing the Bundle Size
+Les cookies de session sont configurés avec :
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+secure: true (HTTPS obligatoire)
 
-### Making a Progressive Web App
+sameSite: "none" (nécessaire pour cross-site)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+📂 Structure du projet
+Code
+client/
+ ├── public/              # Fichiers statiques
+ ├── src/
+ │   ├── components/       # Composants React
+ │   ├── pages/            # Pages principales (Accueil, Carte, Réservation, etc.)
+ │   ├── services/         # Appels API via Axios
+ │   ├── styles/           # Fichiers Sass
+ │   └── App.js            # Point d’entrée React
+ ├── package.json
+ └── README.md
+👨‍💻 Développement
+Node.js requis : 20.x
 
-### Advanced Configuration
+Lancer le backend sur localhost:5000 pour tester les appels API.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Frontend accessible sur localhost:3000.
 
-### Deployment
+📖 Fonctionnalités principales
+🏠 Page d’accueil avec présentation du restaurant
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+📜 Consultation de la carte et des catégories
 
-### `npm run build` fails to minify
+📅 Réservation en ligne avec confirmation par email
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+👤 Gestion des comptes utilisateurs et administrateurs
+
+📩 Formulaire de contact avec suivi du statut
+
+🔐 Authentification et gestion des sessions sécurisées
