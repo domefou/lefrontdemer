@@ -120,7 +120,7 @@ const Contact = () => {
                 <div className="adresse">
                     <h3>Notre adresse</h3>
                     <p className="center">Le Front de Mer :
-                        Rte Bleue  85100 Les Sables-d’Olonne .</p>
+                        XXXXX 85XXX Les Sables-d’Olonne .</p>
                     <p className="center">Situé en bordure de plage, avec vue sur l’horizon et les bateaux au loin. Parking à proximité.</p>
                 </div>
 
@@ -129,7 +129,7 @@ const Contact = () => {
                     <h3>Nous contacter</h3>
                     <ul>
                         <li><span className="bold">Téléphone : </span>02 51 XX XX XX </li>
-                        <li><span className="bold">E-mail : </span>lefrontdemer.NoReply@gmail.com</li>
+                        <li><span className="bold">E-mail : </span>XXXXXXXXX.NoReply@gmail.com</li>
                         <li><span className="bold">Instagram / Facebook : </span> @lefrontdemer.restaurant</li>
                     </ul>
 

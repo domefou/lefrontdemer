@@ -30,8 +30,14 @@ const Accueil = () => {
 
                 <div className="container_text_intro">
                     <h1>
-                        Le front de mer
+                        Le front de mer (Site Factice)
                     </h1>
+
+                    <p className="paragraphe_1">
+                        Ce site est un projet fictif réalisé dans le cadre d'une formation en développement web.
+                        Toutes les informations, images et contenus présentés ici sont utilisés à des fins éducatives uniquement
+                        et ne représentent pas une entreprise réelle.
+                    </p>
 
                     <p className="paragraphe_1">
                         Là où les embruns rencontrent la gourmandise, "Le Front de Mer" vous invite

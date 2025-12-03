@@ -58,7 +58,7 @@ const FooterAdmin = () => {
 
                             <div className="text_info_none">
                                 <p className="text_none">Le front de mer :</p>
-                                <a href="tel:0365849817" className="text_link" >03.65.84.98.17</a>
+                                <a href="tel:0365849817" className="text_link" >02 51 XX XX XX</a>
                             </div>
 
 
@@ -68,7 +68,7 @@ const FooterAdmin = () => {
                         <div className="adresse">
                             <p className="text_info">Adresse :</p>
                             <a className="text_link" target="_blank" rel="noopener noreferrer" href="https://www.google.fr/maps/place/Rte+Bleue,+85100+Les+Sables-d'Olonne/@46.4911302,-1.8077001,17z/data=!3m1!4b1!4m6!3m5!1s0x4804679cdf30678b:0xbd97a5814048ef62!8m2!3d46.4911302!4d-1.8051252!16s%2Fg%2F1tj4gf2v?entry=ttu&g_ep=EgoyMDI1MDgyNC4wIKXMDSoASAFQAw%3D%3D">
-                                Rte Bleue, 85100 Les Sables-d'Olonne</a>
+                                XXXXX 85XXX Les Sables-d’Olonne .</a>
 
                         </div>
 

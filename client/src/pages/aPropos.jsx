@@ -27,6 +27,7 @@ const Propos = () => {
                 <div className="intro_propos">
 
                     <h2>À propos de notre restaurant</h2>
+
                     <p >Bienvenue dans notre univers gourmand, où chaque plat est préparé avec passion,
                         authenticité et une touche de créativité. Nous sommes un restaurant dédié à
                         vous offrir une expérience culinaire chaleureuse, conviviale et savoureuse.
