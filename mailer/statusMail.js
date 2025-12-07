@@ -9,7 +9,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
     // Initialisation du client Brevo
     const client = new brevo.TransactionalEmailsApi();
     client.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
-
     // Normaliser la valeur reçue (minuscule + trim + accents uniformisés)
     const etatNormalise = String(etat).toLowerCase().trim();
 
@@ -32,7 +31,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
         subject: 'Mise à jour de votre réservation',
         htmlContent
     };
-
     try {
         const result = await client.sendTransacEmail(email);
         console.log("Mail de statut envoyé via API Brevo :", result.body?.messageId || result);
@@ -63,7 +61,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
             pass: process.env.MAILER_APP
         }
     });
-
     if (etat === "acceptée") {
         const mailAccepted = {
             from: 'lefrontdemer.NoReply@gmail.com',
@@ -74,7 +71,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
         };
         return transporter.sendMail(mailAccepted);
     }
-
     if (etat === "refusée") {
         const mailRefused = {
             from: 'lefrontdemer.NoReply@gmail.com',

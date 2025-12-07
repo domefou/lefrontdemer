@@ -239,7 +239,10 @@ const updateUser = async (req, res, next) => {
         // Vérification du mot de passe
         if (bodyPassword && bodyPassword.length < 8) {
             req.session.errorMessage = 'Le mot de passe doit contenir au moins 8 caractères.';
-            return res.status(200).json({ message: 'Le mot de passe ne correspond pas aux critères.', redirectUrl: `/user/accueil` });
+            return res.status(200).json({
+                message: 'Le mot de passe ne correspond pas aux critères.',
+                redirectUrl: `/user/accueil`
+            });
         };
 
         let user = await User.findOne({ email: emailBody });
@@ -251,7 +254,10 @@ const updateUser = async (req, res, next) => {
             // Validation des champs sécurisés
             if (!validationPassword.isValid) {
                 req.session.errorMessage = validationPassword.message;
-                return res.status(200).json({ message: 'Mot de passe incorrect.', redirectUrl: `/user/accueil` });
+                return res.status(200).json({
+                    message: 'Mot de passe incorrect.',
+                    redirectUrl: `/user/accueil`
+                });
             }
             Object.keys(userBody).forEach((key) => {
                 if (!!userBody[key]) {
@@ -264,14 +270,23 @@ const updateUser = async (req, res, next) => {
             req.params.email = email;
 
             req.session.successMessage = `Utilisateur : "${userUpdate.name}" mis à jour avec succès`;
-            return res.status(200).json({ message: 'Profil mis à jour avec succès', redirectUrl: `/user/accueil` });
+            return res.status(200).json({
+                message: 'Profil mis à jour avec succès',
+                redirectUrl: `/user/accueil`
+            });
         } else {
             req.session.errorMessage = `Utilisateur introuvable avec cet email`;
-            return res.status(200).json({ message: 'Utilisateur introuvable avec cet email', redirectUrl: `/user/accueil` });
+            return res.status(200).json({
+                message: 'Utilisateur introuvable avec cet email',
+                redirectUrl: `/user/accueil`
+            });
         }
     } catch (error) {
         console.error("adminUpdate : erreur lors de l'utilisation de la méthode", error);
-        return res.status(200).json({ message: 'Utilisateur introuvable avec cet email', redirectUrl: `/user/accueil` });
+        return res.status(200).json({
+            message: 'Utilisateur introuvable avec cet email',
+            redirectUrl: `/user/accueil`
+        });
     }
 };
 
