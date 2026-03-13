@@ -90,7 +90,13 @@ const Confidentialites = () => {
                             <li>Faciliter la navigation</li>
                             <li>Mémoriser vos préférences</li>
                         </ul>
-                        <p className="left">Vous pouvez à tout moment désactiver les cookies via les paramètres de votre navigateur.</p>
+                        <p className="left">Vous pouvez à tout moment désactiver les cookies via les paramètres de votre navigateur ou simplement en cliquant ci-dessous</p>
+                        <button onClick={() => {
+                            localStorage.removeItem("analytics_consent");
+                            window.location.reload();
+                        }}>
+                            Modifier mes préférences cookies
+                        </button>
 
                     </div>
                     {/*******/}

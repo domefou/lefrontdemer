@@ -39,6 +39,9 @@ const CookieConsent = () => {
                         Refuser
                     </button>
                 </div>
+                <p style={styles.text}>
+                    Vous pourrez modifier vos préférences à tout moment en vous rendant à la section cookies de la page de confidentialité.
+                </p>
             </div>
         </div>
     );
