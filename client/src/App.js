@@ -13,6 +13,7 @@ import MonCompte from "./pages/monCompte";
 
 import SignUp from "./pages/signup";
 
+import CookieConsent from "./components/cookieConsent";
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -60,6 +61,7 @@ const App = () => {
   return (
     <div className="BodyContainer">
       <ScrollToTop />
+      <CookieConsent />
       <Routes>
         <Route path="*" element={<Navigate to="/LeFrontDeMer" />} />
         <Route path="/" element={<Navigate to="/LeFrontDeMer" />} />

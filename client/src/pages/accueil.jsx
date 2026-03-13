@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout";
+
+
 import '../styles/desktop/accueil.scss';
 import '../styles/mobile/accueil.scss';
 import Intro_banner from "../assets/image/banner_intro.svg";
@@ -9,6 +11,7 @@ import img_bar from "../assets/image/glasses-2119604_1280.jpg";
 
 
 const Accueil = () => {
+
 
 
     return (
@@ -21,6 +24,8 @@ const Accueil = () => {
                     content="Découvrez le restaurant Le Front de Mer aux Sables d'Olonne, cuisine maison et produits frais."
                 />
             </Helmet>
+
+
 
             <div className="container_gen">
 
