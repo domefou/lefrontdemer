@@ -1,44 +1,31 @@
-
 const { User, Reservation } = require('../models/indexation');
-
 const { Op } = require("sequelize");
-
-
 const { statusMail } = require('../mailer/statusMail');
-
 
 
 const OneReservation = async (req, res) => {
     const id_user = req.user.id_user;
 
     // ou req.body selon ta route
-
     try {
         const user = await User.findByPk(id_user);
         if (!user) {
             return res.status(404).json({ message: "Utilisateur introuvable" });
         }
-
         const reservations = await Reservation.findAll({
             where: { id_user },
             include: { model: User, as: 'User' }
-
-
         });
-
         if (reservations.length > 0) {
             res.json({ reservations });
         } else {
             res.status(404).json({ message: "Aucune réservation trouvée" });
         }
-
     } catch (err) {
         console.error("Erreur serveur :", err);
         res.status(500).json({ message: "Erreur serveur lors de la récupération" });
     }
 };
-
-
 
 
 const AllReservation = async (req, res) => {
@@ -53,13 +40,11 @@ const AllReservation = async (req, res) => {
                 }
             }
         );
-
-        // 2️⃣ Récupérer toutes les réservations après la mise à jour
+        // Récupérer toutes les réservations après la mise à jour
         const reservations = await Reservation.findAll({
             include: { model: User, as: 'User' },
             order: [["date", "DESC"], ["heure", "DESC"]] // tri du plus récent au plus ancien
         });
-
         res.json({ reservations });
     } catch (err) {
         console.error("Erreur serveur :", err);
@@ -90,9 +75,6 @@ const addNewReservation = async (req, res) => {
         res.status(500).json({ message: "Erreur serveur lors de la création" });
     }
 };
-
-
-
 
 
 
@@ -155,9 +137,6 @@ const updateReservation = async (req, res) => {
         res.status(500).json({ message: 'Erreur serveur lors de la mise à jour' });
     }
 };
-
-
-
 
 
 

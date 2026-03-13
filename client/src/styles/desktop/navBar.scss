@@ -6,6 +6,8 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+        position: relative;
+        overflow: hidden;
         width: 100%;
         min-height: 200px; //simillaire a la version mobile
 
@@ -38,7 +40,6 @@
     }
 
     .container_top {
-        position: relative;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

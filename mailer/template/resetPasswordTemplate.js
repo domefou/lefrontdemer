@@ -2,10 +2,12 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = ({ nom, resetLink }) => `
-<div style="font-family: Arial, sans-serif; background-color: #000; color: #fff; padding: 20px; border-radius: 8px; text-align: center;">
+<div style="font-family: Arial, sans-serif; background-color: #000; color: #fff; 
+padding: 20px; border-radius: 8px; text-align: center;">
   <!-- Logo -->
   <div style="margin-bottom: 20px;">
-    <img src="${process.env.FRONTEND_URL}/logo.png" alt="Logo" width="60" height="60" style="border-radius:50%; margin-bottom:20px;" />
+    <img src="${process.env.FRONTEND_URL}/logo.png" alt="Logo" width="60" height="60" 
+    style="border-radius:50%; margin-bottom:20px;" />
   </div>
 
   <!-- Titre -->
@@ -16,7 +18,8 @@ module.exports = ({ nom, resetLink }) => `
 
   <!-- Bouton lien -->
   <a href="${resetLink}" 
-     style="display:inline-block; margin: 20px 0; padding: 12px 24px; background-color: #FFD700; color: #000; text-decoration: none; font-weight: bold; border-radius: 4px;">
+     style="display:inline-block; margin: 20px 0; padding: 12px 24px; background-color: #FFD700; 
+     color: #000; text-decoration: none; font-weight: bold; border-radius: 4px;">
     Réinitialiser mon mot de passe
   </a>
 

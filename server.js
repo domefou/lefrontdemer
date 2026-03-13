@@ -19,6 +19,7 @@ const session = require("express-session");
 require('dotenv').config();
 require('./startup/sequelizeInit'); // initialise Sequelize + synchronisation
 
+
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 
@@ -136,7 +137,7 @@ app.use('/contact', contactRoutes);
 app.use('/statusContact', contactStatusRoutes);
 
 
-//////////// Cette partie doit etre commenter pour le déploiement  utilisation uniquement en local ////////////
+//////////// Cette partie doit etre commenter pour le déploiement ; utilisation uniquement en local ////////////
 
 // Fichiers statiques React
 

@@ -16,9 +16,9 @@ function checkJWT(req, res, next) {
     try {
         const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
-        // 🔧 Uniformiser les noms pour correspondre à ta base
+        // Uniformiser les noms pour correspondre à la base
         req.user = {
-            id_user: decoded.userId, // ← correspond à ta table
+            id_user: decoded.userId, // ← correspond à la table
             role: decoded.role
         };
 
@@ -48,7 +48,7 @@ const mailVerify = async (req, res, next) => {
             const decoded = jwt.verify(token, process.env.SECRET_KEY);
 
             req.user = {
-                id_user: decoded.id_user, // ou decoded.userId selon ton payload
+                id_user: decoded.id_user,
                 mail: decoded.mail
             };
 

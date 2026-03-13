@@ -1,0 +1,18 @@
+ERROR 1048 (23000) at line 26: Column 'nom' cannot be null
+ERROR 1452 (23000) at line 54: Cannot add or update a child row: a foreign key constraint fails (`restaurant_test`.`article`, CONSTRAINT `fk_article_categorie` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id_categorie`) ON DELETE CASCADE ON UPDATE CASCADE)
+ERROR 1364 (HY000) at line 72: Field 'nom' doesn't have a default value
+ERROR 1364 (HY000) at line 105: Field 'mail' doesn't have a default value
+ERROR 1364 (HY000) at line 130: Field 'prix' doesn't have a default value
+ERROR 1452 (23000) at line 162: Cannot add or update a child row: a foreign key constraint fails (`restaurant_test`.`reservation`, CONSTRAINT `fk_reservation_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE CASCADE)
+ERROR 1364 (HY000) at line 178: Field 'date' doesn't have a default value
+article categorie
+Salade C├®sar   Entr├®es
+Soupe de poisson        Plats
+id_reservation  utilisateur
+1       Admin
+id_article      id_categorie    nom     prix    detail  photo1  photo2  created_at      updated_at
+2       2       Soupe de poisson        14.50   poisson, crustac├®s     image1.jpg      NULL    2026-02-24 14:11:49     2026-02-24 14:11:49
+id_reservation  id_user date    heure   nbr_couvert     created_at      updated_at      etat
+1       NULL    2025-11-22      12:30:00        4       2026-02-24 14:11:49     2026-02-24 14:11:49     en attente
+message
+Tests termin├®s avec succ├¿s.

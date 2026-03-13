@@ -2,20 +2,19 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 module.exports = ({ nom, date, heure, nbr_couvert, etat }) => `
-  <div style="font-family: Arial, sans-serif; background-color: #000; color: #fff; padding: 20px; border-radius: 8px;">
-  <!-- Logo -->
+  <div style="font-family: Arial, sans-serif; background-color: #000; color: #fff; 
+  padding: 20px; border-radius: 8px;">
+<!-- Logo -->
   <div style="text-align: center; margin-bottom: 20px;">
-    <img src="${process.env.FRONTEND_URL}/logo.png" alt="Logo" width="60" height="60" style="border-radius:50%; margin-bottom:20px;" />
+    <img src="${process.env.FRONTEND_URL}/logo.png" alt="Logo" width="60" height="60" style="border-radius:50%;
+     margin-bottom:20px;" />
   </div>
-
-  <!-- Titre -->
+<!-- Titre -->
   <h2 style="color: #FFD700; text-align: center;">Bonjour ${nom},</h2>
-
-  <!-- Message principal -->
+<!-- Message principal -->
   <p style="text-align: center;">
     Voici une mise à jour concernant votre réservation :
   </p>
-
   <!-- Détails réservation -->
   <ul style="list-style: none; padding: 0; text-align: center;">
     <li><strong style="color:#FFD700;">Date :</strong> ${date}</li>
@@ -32,13 +31,11 @@ module.exports = ({ nom, date, heure, nbr_couvert, etat }) => `
       et de vous faire vivre une agréable expérience.
     </li>
   </ul>
-
-  <!-- Remerciements -->
+<!-- Remerciements -->
   <p style="text-align: center; margin-top: 20px;">
     Nous vous remercions pour votre confiance.
   </p>
-
-  <!-- Signature -->
+<!-- Signature -->
   <p style="text-align: center; color: #FFD700; font-weight: bold;">
     À bientôt,<br/>L’équipe du Front de Mer
   </p>

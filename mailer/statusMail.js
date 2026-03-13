@@ -13,7 +13,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
     const etatNormalise = String(etat).toLowerCase().trim();
 
     let htmlContent;
-
     if (etatNormalise === "acceptée") {
         htmlContent = statusAcceptedTemplate({ nom, date, heure, nbr_couvert, etat });
     } else if (etatNormalise === "refusée") {
@@ -22,7 +21,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
         console.error("État inattendu reçu :", etat);
         throw new Error("État de réservation invalide");
     }
-
     // Définition du mail
     const email = {
         sender: { email: process.env.BREVO_USER },   // expéditeur validé dans Brevo
@@ -40,7 +38,6 @@ const statusMail = async ({ nom, mail, date, heure, nbr_couvert, etat }) => {
         throw err;
     }
 };
-
 module.exports = { statusMail };
 
 

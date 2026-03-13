@@ -1,4 +1,4 @@
-const session = require('express-session');
+/*const session = require('express-session');
 const MySQLStore = require('express-mysql-session')(session);
 require('dotenv').config();
 
@@ -31,7 +31,6 @@ require('dotenv').config();
  * - store : Persistance des sessions via MySQL
  *
  * @exports {Function} : Middleware express-session prêt à être utilisé dans l'app Express
- */
 
 const sessionStore = new MySQLStore({
     host: process.env.DB_HOST,
@@ -47,3 +46,5 @@ module.exports = session({
     saveUninitialized: false,
     store: sessionStore
 });
+
+*/

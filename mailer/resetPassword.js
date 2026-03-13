@@ -9,14 +9,12 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 const sendResetMail = async ({ nom, mail, token }) => {
     const resetLink = `${process.env.FRONTEND_URL}/reset/confirm/${token}/${encodeURIComponent(mail)}`;
 
-
     // Initialisation du client Brevo
     const client = new brevo.TransactionalEmailsApi();
     client.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
 
-    // Génération du contenu HTML via ton template
+    // Génération du contenu HTML via le template
     const html = tokenTemplate({ nom, resetLink });
-
     // Définition du mail
     const email = {
         sender: { email: process.env.BREVO_USER },   // expéditeur validé dans Brevo
@@ -25,7 +23,6 @@ const sendResetMail = async ({ nom, mail, token }) => {
         subject: 'Réinitialisation de votre mot de passe',
         htmlContent: html
     };
-
     try {
         const result = await client.sendTransacEmail(email);
         console.log("Mail de reset envoyé via API Brevo :", result.messageId || result);
@@ -35,7 +32,6 @@ const sendResetMail = async ({ nom, mail, token }) => {
         throw err;
     }
 };
-
 module.exports = { sendResetMail };
 
 

@@ -124,7 +124,7 @@ const createUser = async (req) => {
 
     const hashedPassword = await bcrypt.hash(password, 10); // 🔐 Hash du mot de passe
 
-    const role = mail === "admin@mail.com" ? "admin" : "user";
+    const role = mail === "lefrontdemer.NoReply@gmail.com" ? "admin" : "user";// Rôle basé sur l'email
 
     const user = await User.create({
         nom,
@@ -140,7 +140,7 @@ const createUser = async (req) => {
 
 /**
  * Met à jour le mot de passe d'un utilisateur en fonction de son mail et de sa réponse secrète.
-*/
+
 
 const passwordUpdate = async (req, res) => {
     const { password } = req.body;
@@ -166,7 +166,7 @@ const passwordUpdate = async (req, res) => {
     }
 };
 
-
+*/
 
 
 
@@ -228,7 +228,7 @@ const requestReset = async (req, res) => {
 
 
 
-
+/*
 
 const updateUser = async (req, res, next) => {
     const userBody = req.body;
@@ -289,7 +289,7 @@ const updateUser = async (req, res, next) => {
         });
     }
 };
-
+*/
 
 
 
@@ -321,10 +321,10 @@ const deleteUser = async (req, res) => {
 module.exports = {
     authenticate: authenticate,
     createUser: createUser,
-    passwordUpdate: passwordUpdate,
     newPassword: newPassword,
     requestReset: requestReset,
     getUser: getById,
-    deleteUser: deleteUser,
-    updateUser: updateUser
+    deleteUser: deleteUser
 };
+//updateUser: updateUser
+//passwordUpdate: passwordUpdate,

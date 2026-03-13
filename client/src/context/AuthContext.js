@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
         const path = location.pathname;
 
         const isPublicRoute =
-            publicRoutes.includes(path) || path.startsWith(`/Reset/confirm/`);
+            publicRoutes.includes(path) || path.startsWith(`/Reset/confirm/`);// /Reset/confirm/:token
 
         if (!isPublicRoute) {
             fetch(`${API_URL}/auth/check`, { credentials: 'include' })
