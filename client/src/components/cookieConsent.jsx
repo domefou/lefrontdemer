@@ -60,14 +60,18 @@ const styles = {
         zIndex: 9999,
     },
     title: {
-        color: "black"
+        color: "black",
+        padding: "10px",
     },
-    text: { color: "black" },
+    text: {
+        color: "black",
+        padding: "10px",
+    },
     popup: {
         background: "white",
         padding: "20px",
         borderRadius: "8px",
-        maxWidth: "400px",
+        maxWidth: "500px",
         width: "100%",
         textAlign: "center",
         boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
@@ -75,7 +79,7 @@ const styles = {
     buttons: {
         marginTop: "15px",
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
     },
     accept: {
         background: "#4CAF50",
